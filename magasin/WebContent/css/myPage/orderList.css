@@ -1,0 +1,169 @@
+@charset "UTF-8";
+body{
+  background-color: rgb(246,246,246);
+}
+.ol-wrapper{
+border: 1px solid black; 
+width:  943px;
+
+}
+
+.ol-wrapper-h3{
+color: #666;
+font-size: 11px;
+border:1px solid #e8e8e8;
+padding: 10px; 
+}
+.ol-table{
+border-bottom : 1px solid #e8e8e8;
+border-top : 1px solid #e8e8e8;
+width: 100%;
+margin-bottom: 30px;
+}
+.ol-table tr td{
+padding: 14px;
+text-align: center;
+
+}
+.ol-table>thead {
+
+border:1px solid black;
+}
+.ol-table>thead>tr>th {
+/* font-weight: lighter; */
+font-size : 11px;
+color: black;
+/* font-weight: bold; */
+}
+
+
+.ol-table tr th{
+padding: 14px;
+text-align: center;
+
+}
+
+.ol-thead{
+background-color : #fafafa;
+}
+.ol-tbody{
+
+background-color : white;
+}
+.ol-list-1{
+font-size:13px;	
+}
+
+.ol-list-2>a>img{
+ height: 80px;
+ width: 80px;
+}
+.ol-list-3>ul{
+padding: 0px;
+
+}
+.ol-list-3>ul>li{
+
+list-style: none;
+text-align:left;
+width: 100%;
+} 
+
+
+.ol-list-3>ul>li{
+ margin-top: 5px;
+ 	   font-size: 12px;
+    color: black;
+	
+ 
+}
+.ol-list-4, .ol-list-5{
+    font-size: 11px;
+    font-weight: bold;
+    color: #666666;
+
+}
+.ol-list-6{
+	   font-size: 11px;
+    font-weight: bold;
+    color: black;
+	
+}
+.ol-list-7>a{
+	border: 1px solid black;
+	text-decoration: none;
+	padding: 2px 8px;
+	color: black;
+	 font-size: 12px;
+}
+
+.ol-wrapper-h2{
+color:  rgb(246,246,246);
+margin-bottom: 0px;
+}
+
+.ol-wrapper-h2>span>a{
+font-size: 11px;
+text-decoration: none;
+color: black;
+margin: 5px;
+vertical-align: middle;
+text-align: center;
+line-height: 100%;
+padding-right: 5px;
+padding-left: 5px;
+}
+ .ol-wrapper-h2>span{
+display: inline-block;
+padding-bottom: 5px;
+ border: 1px solid #888888;
+height:25px;
+line-height:25px;
+float: right;
+vertical-align: middle;
+text-align: center;
+
+
+} 
+.ol-pageNavi{
+/* 	border : 1px solid black; */
+	margin: 15px;
+	text-align: center;
+	font-size: 0;
+	line-height: 0;
+	margin-bottom: 80px;
+}
+
+.ol-pageNavi>a{
+	text-decoration: none;	
+	color: #666;
+}
+
+.ol-navi-ul{
+	padding-left: 0px; 
+vertical-align: top; 
+	width: 34px;
+	display: inline-block;
+/* 	border : 1px solid black; */
+ 	
+}
+.ol-navi-ul li{
+ border: 1.5px solid #EBEAEA;
+	width: 32px;
+	height: 32px;
+	background-color: white; 
+
+
+}
+.ol-navi-ul>li>a{
+	display: block;
+	font-size:12px;
+	color : black;
+	text-align: center;
+	padding: 9px 0;
+	line-height: 14px;
+	
+
+}
+
+

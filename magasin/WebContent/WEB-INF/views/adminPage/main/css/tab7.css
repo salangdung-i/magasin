@@ -1,0 +1,100 @@
+#tab-7 {
+  position: relative;
+}
+
+#tab-7 > .tab7-window {
+  width: 100%;
+}
+
+#tab-7 > .tab7-window > .chart-title {
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+  padding: 15px 25px;
+  margin-bottom: 0;
+  height: 50px;
+  font-size: 23px;
+  display: flex;
+  align-items: center;
+}
+
+.tab7-window > .chart-search {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 40px;
+  padding-bottom: 0;
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+  height: 145px;
+}
+
+.chart-search > .search-top,
+.chart-search > .search-bottom {
+  display: flex;
+  min-width: 700px;
+  height: 55px;
+}
+.chart-search > .search-top > div,
+.chart-search > .search-bottom > div {
+  margin-right: 70px;
+}
+
+.chart-search > .search-btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.chart-search > .search-btn > button {
+  cursor: pointer;
+  border: 1px solid #888888;
+  background-color: #bcbcbc;
+  border-radius: 5px;
+  width: 100px;
+  height: 35px;
+}
+
+.chart-search > .search-top > .top-title,
+.chart-search > .search-bottom > .bottom-title,
+.chart-search > .search-top > .top-select,
+.chart-search > .search-bottom > .bottom-select,
+.chart-search > .search-top > .top-date-select,
+.chart-search > .search-bottom > .bottom-input {
+  margin: 0 35px;
+}
+
+.chart-search > .search-top {
+  margin-bottom: 10px;
+}
+
+.tab7-window > .chart-top,
+.tab7-window > .chart-bottom {
+  display: flex;
+}
+.tab7-window > .chart-top {
+  margin-bottom: 10px;
+}
+
+.chart-top > .top-canvas1,
+.chart-bottom > .bottom-canvas2 {
+  padding: 5px 10px;
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+  height: 70%;
+}
+.chart-top > .top-canvas1,
+.chart-top > .top-canvas3 {
+  padding-top: 10px;
+}
+
+.chart-top > .top-canvas3,
+.chart-bottom > .bottom-canvas4 {
+  padding: 5px 10px;
+  margin-left: 15px;
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+  height: 30%;
+}

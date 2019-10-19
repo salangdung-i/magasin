@@ -1,0 +1,131 @@
+.tab5-order {
+  width: 100%;
+  height: 100%;
+}
+
+.tab5-order > .order-top > .top-title {
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+  height: 50px;
+  font-size: 23px;
+}
+
+.tab5-order > .order-view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+  min-width: 1000px;
+  height: 55px;
+  margin-top: 10px;
+  padding-top: 25px;
+  padding: 10px 100px;
+}
+
+.tab5-order > .order-search {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 35px;
+  margin-top: 10px;
+  padding-bottom: 0;
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+  height: 145px;
+}
+
+.order-search > .search-top,
+.order-search > .search-bottom {
+  display: flex;
+}
+
+.order-search > .search-top > div,
+.order-search > .search-bottom > div {
+  margin-right: 70px;
+}
+
+.order-search > .search-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.order-search > .search-btn > button {
+  cursor: pointer;
+  border: 1px solid #888888;
+  background-color: #bcbcbc;
+  border-radius: 5px;
+  width: 100px;
+  height: 35px;
+}
+
+.order-bottom {
+  margin-top: 10px;
+  height: 440px;
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+}
+
+.order-bottom > .bottom-title {
+  border-bottom: 1px solid #cdcdcd;
+  padding: 15px 35px;
+}
+
+.order-view > div {
+  font-size: 18px;
+}
+
+.order-view a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px;
+  color: #f43142;
+}
+
+.order-bottom > .bottom-list > .list-title td,
+.order-bottom > .bottom-list > .list-content > table td {
+  width: 250px;
+}
+
+.order-bottom > .bottom-list > .list-title > table td:first-child,
+.order-bottom > .bottom-list > .list-content > table td:first-child {
+  width: 100px;
+}
+
+.order-bottom > .bottom-list > .list-content > table td {
+  height: 40px;
+  line-height: 40px;
+}
+
+.order-bottom > .bottom-list > .list-content > table tr {
+  border-bottom: 0.1px solid #dedede;
+}
+
+.order-bottom > .bottom-list > .list-content > table button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+  height: 30px;
+  width: 100px;
+}
+.order-search > .search-btn {
+  padding-bottom: 10px;
+}
+
+.ready {
+  color: #ffffff;
+  background-color: #cf2727;
+}
+
+.out {
+  color: #000000;
+  background-color: #e7da20;
+}
+
+.look {
+  background-color: #1fd045;
+}

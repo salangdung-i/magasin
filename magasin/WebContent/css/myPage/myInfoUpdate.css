@@ -1,0 +1,157 @@
+@charset "UTF-8";
+body{
+  background-color: rgb(246,246,246);
+}
+.miu-wrapper{
+	padding: 20px;
+/* 	border: 1px solid black; */
+	width:  943px;
+}
+
+.miu-div-1>h3{
+	margin-top: 18px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	font-size: 11px;
+	color : #666666;
+	padding: 10px;
+	border: 1px solid #d7d7d7;
+	background-color: white;
+}
+.miu-div-2-h3{
+	margin: 50px 0px 10px;
+	font-size: 16px;
+	color : #666;
+}
+.miu-div-2-table>tbody>tr>th{
+	font-size: 11px;
+	color : #777777;
+	background-color: #fafafa;
+	padding: 14px;	
+}
+.miu-div-2-table>tbody>tr>td{
+	font-size: 11px;
+	line-height: 1.8;
+	color : #666666;
+	background-color: white;
+	padding: 14px;	
+	vertical-align: middle;
+}
+.miu-div-2-table>tbody>tr>td>input{
+	border: 1px solid #d7d7d7;
+	border-radius: 5px;
+	width:  128px;
+
+}
+#phone3, #phone2{
+	width:  42px;
+	padding-right: 4px;
+	padding-left: 4px;
+	
+}
+#phone1{
+	width:  60px; 
+	padding-right: 4px;
+	padding-left: 4px;
+	border: 1px solid #d7d7d7;
+	border-radius: 5px;
+	
+	
+}
+.miu-div-2-table{
+	width: 100%;
+	border-top: 1.5px solid #d7d7d7;
+	border-bottom: 1.5px solid #d7d7d7;
+}
+
+ .miu-div-3{
+  padding-bottom: 10px; 
+  padding-top: 10px;
+ }
+.miu-div-3>ul>li{
+	list-style: none;
+}
+.miu-div-3>ul{
+	display: inline-block;
+	padding-left: 0px;
+	text-align: center;
+	width: 100%;
+}
+.miu-div-3-li1, .miu-div-3-li2{
+	display: inline-block;
+	vertical-align: middle;
+	padding: 10px 8px 10px 8px;
+	width: 120px;
+	height: 20px;
+	padding-left: 8px;
+	padding-ri: 8px; 
+	color: white;
+	font-size: 13px;
+	text-align: center;
+}
+.miu-div-3-li1{
+	background-color: #444444;
+}
+.miu-div-3-li2{
+	background-color: #888888;
+}
+
+.miu-div-3-li3{
+	font-size: 13px;
+	display: inline-block;
+	padding : 6px 10px;
+	border : 1px solid #ddd;
+	background-color: white;
+	float: right;
+	margin-top: 5px;
+	margin-right: 3px;
+}
+
+.mif-table-addr{
+	padding-left: 0px;
+	
+}
+.mif-table-addr>li{
+	list-style: none;
+		
+	/* width:  128px; */
+	
+}
+.mif-table-addr>li>input{
+	border: 1px solid #d7d7d7;
+	border-radius: 5px;
+}
+#mif-postCode{
+	width:55px; 
+	height: 20px;
+	margin-bottom : 3px;
+	display:inline-block;
+	
+}
+
+#mif-addrSearchBtn{
+	padding: 2px 8px;
+	border: 1px solid #888888;
+	font-size: 11px;
+	background-color: white;
+
+}
+#mif-roadAddr{
+		width:270px; 
+	height: 20px;
+	margin-bottom : 3px;
+	display:inline-block;
+}
+#mif-detailAddr{
+		width:270px; 
+	height: 20px;
+	margin-bottom : 3px;
+	display:inline-block;
+	
+}
+#mif-email{
+	border: 1px solid #d7d7d7;
+	border-radius: 5px;
+
+	
+}

@@ -1,0 +1,14 @@
+.top-prd-name,
+.top-prd-gender,
+.top-prd-ctgr,
+.ctgr-left,
+.ctgr-right,
+.top-price {
+  display: flex;
+}
+
+.top-prd-ctgr > .ctgr-left,
+.top-prd-ctgr > .ctgr-right {
+  display: flex;
+  justify-content: space-between;
+}
