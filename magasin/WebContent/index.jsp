@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>**INCLUDE 틀**</title>
 <link rel="stylesheet" href="/css/common_css/layout.css">
-<link rel="stylesheet" href="index-list.css">
 </head>
 <body id="body1">
 	<div class="wrapper">
