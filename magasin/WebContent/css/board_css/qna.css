@@ -1,0 +1,134 @@
+@charset "UTF-8";
+/* qnaList.css */
+	
+.qnaContainer {
+	width: 943px;
+	height:100%;
+	margin:0 auto;
+	padding: 0;
+}
+
+#qna>li {
+	list-style: none;
+	background: black;
+	color: white;
+	width: 100px;
+	height: 30px;
+	border: 2px solid black;
+	text-align: center;
+	padding-top: 5px;
+	font-weight: bold;
+}
+
+#qna {
+	margin: 0;
+	padding: 0;
+}
+
+.qnaContainer table {
+	text-align: center;
+	border-collapse: collapse;
+}
+
+.qnalist-table th{
+	text-align:center;
+	padding-left: 10px;
+}
+
+.table-wrapper {
+	border: 2px solid black;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#writeQ {
+	text-align:right;
+	padding-right:20px;
+}
+
+.writeBtn{
+	color: #4C4C4E;
+	font-size: 20px;
+}
+
+.writeBtn:hover{
+	color: white;
+	background: black;
+}
+
+.content {
+	color: black;
+	font-size: 15px;
+}
+
+.content:hover{
+	text-decoration: none;
+	color: #595959;
+	font-weight: bold;
+}
+.q-category-container{
+	width:100%;	
+	height:50px;
+}
+.q-category{
+	padding:0;
+	margin-left : 300px;
+}
+.q-category>li{
+	width: 150px;
+	height: 50px;
+	border : 1px solid darkgray;
+	float:left;
+	cursor : pointer;
+	text-align:center;
+	list-style:none;
+	margin-right:20px;
+	line-height: 50px;
+}
+.q-category>li:hover{
+	font-weight:bold;
+	background:black;
+	color:white;
+}
+.table>tbody>tr>td{
+		vertical-align: middle;
+}
+
+/* qView1.css */
+.qna-view-table th{
+	text-align:center;
+	padding-left: 10px;
+	width: 190px;
+}
+.table>tbody>tr>td{
+	vertical-align: middle;
+}
+.table>thead>tr>th{
+	border-bottom: none;
+}
+.inputText{
+	font-size: 15px;
+	text-align: center;
+	outline: none;
+	border: none;
+	background: none;
+	border-bottom: 1px dashed #888888;	
+	width: 60%;
+	
+}	
+.qna-btn>a, .qna-btn>button{
+	display: block;
+	width: 70px;
+	height: 30px;
+	margin-left: 5px;
+	float: right;
+}
+
+/* qView2.css */
+/* qWrite1.css */
+/* qWrite2.css */
+/* qUpdate1.css */
+/* qUpdate2.css */
+/* aView.css */
+/* aWrite.css */
+/* aUpdate.css */

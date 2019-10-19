@@ -1,0 +1,228 @@
+    * {
+        text-decoration: none;
+        list-style-type: none;
+        font-size: 12px;
+    }
+
+    .orderContainer {
+        width: 943px;
+/*        border: 2px solid red;*/
+    }
+
+    p {
+        text-align: right;
+    }
+
+    .orderText a {
+        padding-right: 10px;
+        color: #000000;
+    }
+
+    body {
+        background-color: rgb(246, 246, 246);
+    }
+
+    .order-wrapper {
+/*         border: 1px solid black; */
+        width: 940px;
+    }
+
+    .order-table {
+        border-bottom: 1px solid #e8e8e8;
+        border-top: 1px solid #e8e8e8;
+        width: 100%;
+    }
+
+    .order-table tr td {
+        padding: 14px;
+        text-align: center;
+    }
+
+    .order-table > thead {
+        border: 1px solid black;
+    }
+
+    .order-table > thead > tr > th {
+        font-weight: lighter;
+        font-size: 11px;
+    }
+
+    .order-table tr th {
+        padding: 14px;
+        text-align: center;
+    }
+
+    .order-thead {
+        background-color: #fafafa;
+    }
+
+    .order-tbody {
+        background-color: white;
+    }
+
+    .order-tfoot {
+        background-color: #fafafa;
+    }
+
+    .order-list-1 > a img {
+        width: 100px;
+        height: 150px;
+    }
+
+    .order-list-2 > ul,
+    .order-list-5 > ul {
+        padding: 0px;
+    }
+
+    .order-list-2 > ul > li {
+        list-style: none;
+        text-align: left;
+        width: 100%;
+    }
+
+    .order-list-2-li-1 {
+        color: #666;
+        font-size: 11px;
+    }
+
+    .order-list-2-li-2 {
+        color: #707070;
+        font-size: 11px;
+    }
+
+    .order-list-5 > ul > li {
+        list-style: none;
+        /* text-align:left;
+        width: 100%; */
+    }
+
+    .order-list-2 > ul > li {
+        margin-top: 5px;
+    }
+
+    .order-list-3 {
+        font-size: 11px;
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .order-list-4,
+    .order-list-5,
+    .order-list-6 {
+        font-size: 11px;
+        font-weight: bold;
+        color: #666666;
+    }
+
+    .order-list-5 > ul {
+        padding: 0px;
+    }
+
+    .order-list-5 > ul > li {
+        list-style: none;
+        width: 100%;
+    }
+
+    .order-list-5-btn1,
+    .order-list-5-btn2 {
+        display: inline-block;
+        width: 90px;
+        margin: 1px 0;
+        text-decoration: none;
+        font-size: 11px;
+        padding: 2px 8px;
+    }
+
+    .order-list-5-btn1 {
+        background-color: #444444;
+        border: 1px solid #777777;
+        color: #FFFFFF;
+    }
+
+    .order-list-5-btn2 {
+        border: 1px solid #ddd;
+        color: #666;
+    }
+
+    .order-list-6 > span {
+        font-size: 13px;
+        font-weight: bold;
+        color: #000000;
+    }
+
+    .order-foot p > span {
+        padding-left: 5px;
+    }
+
+    .order-foot {
+        padding-top: 20px;
+    }
+
+    .ordertext,
+    .orderaddr 
+    {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        border-bottom: 1px solid black;
+    }
+
+    .ordertext > p,
+    .orderpay > p,
+    .orderpays>p{
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .orderorder,
+    .addrInfor,
+    .order-pay,
+    .order-pays{
+        width: 943px;
+    }
+
+    .orderorder > tr {
+        padding: 20px 0px 20x 0px;
+    }
+
+    .orderaddr > p {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .orderpay,.orderpays{
+        float: left;
+        border-bottom: 1px solid black;
+    } 
+    .orderpay,.orderpays{
+    margin-top: 25px;
+}
+    .orderorder td,.addrInfor td,.order-pay td{
+        padding: 10px 5px;
+    }
+    .order-pay span{
+        font-weight: bold; 
+    }
+    .orderorder>tbody td{
+        width: 52px;
+    }
+    .order-pays>tbody td{
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .order-pays>tbody p{
+        text-align: center;
+        font-size: 13px;
+    }
+    .order-pays>tbody th{
+        text-align: center;
+    }
+    .order-pays>tbody span{
+        font-weight: bold;
+    }
+    .btn{
+        width: 85px; height: 24px;
+    }
+    .btn{
+        line-height: 100%;
+    }

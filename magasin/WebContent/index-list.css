@@ -1,0 +1,151 @@
+        *{
+            text-decoration: none;
+        }
+        .windowContainer{
+            width: 943px;
+            box-sizing: border-box;
+        }
+        .main-div,.sub-main{
+            height: 550px;
+            padding: 20px 10px;
+/*            border: 5px solid black;*/
+            position: relative;
+        }
+        .window-cloths{
+            width: 25%;
+            height: 250px;
+        }
+        .window-cloths img {
+             width: 100%;
+        }
+        .cloths-img>img{
+            width: 100%;
+        }
+        .window{
+            display: flex;
+        }
+        .title-top,.title-bottom,.cloths-review{
+            text-align: right;
+        }
+        .title-text>h3{
+            font-size: 15px;
+        }
+        .title-top a{
+            color: #000000;
+            font-size: 12px;
+        }
+        .title-bottom{
+            margin-bottom: 12px;           
+        }
+        .title-bottom>h3{
+            font-size: 15px;
+        }
+        .cloths-title,.cloths-price,.cloths-color{
+            padding: 5px 0px;
+        }
+        .cloths-title{
+            font-size: 12px;
+        }
+        .cloths-title a{
+             color: #555555;
+        }
+        .cloths-review{
+            font-size: 11px;
+        }
+        .subCategory{
+            display: flex;
+        }
+        .subCategory{
+            list-style: none;          
+        }
+        .subCategory>li{
+            padding-right: 15px;
+            font-size: 13px;
+        }
+        .subCategory>li a{
+            color: #000000;      
+        }
+        .cloths-new{
+            display: flex;
+            justify-content: space-between;
+        }
+        .imgs>img{
+            width: 40px;
+            height: 15px;
+            margin-left: 6px;
+        }
+        .window-cloths{
+            padding: 10px;
+        }
+        .color1{
+            border: 0.1px solid #aaa;
+            width: 10px;
+            height: 10px;
+            background: #EFE8D8;
+        }
+        .color2{
+            border: 0.1px solid #aaa;
+            width: 10px;
+            height: 10px;
+            background: #cc6f34;
+        }
+        .color3{
+            border: 0.1px solid #aaa;
+            width: 10px;
+            height: 10px;
+            background: #718f39;
+        }.color4{
+            border: 0.1px solid #aaa;
+            width: 10px;
+            height: 10px;
+            background: #595f79;
+        }        
+        .cloths-color{
+            display: flex;
+        }
+        .cloths-price span{
+            padding-right: 10px;
+            font-size: 12px;
+        }
+        .cloths-color>div{
+            margin: 0px 3px 5px 0px;
+        }
+        .cloths-new{
+            border-top: 1px solid black;
+            padding-top: 5px;
+        }
+        .sub-top{
+            display: flex;
+            justify-content: space-between;
+        }
+        .sub-top>div:first-child{
+            padding: 3px 9px 0px ;
+            font-size: 12px;
+        }
+        .sub-top>div:nth-child(2){
+            font-size: 11px;
+        }
+        .sub-top>div:nth-child(2)>a{
+            padding: 0px 6px;
+            margin:  0px 10px;
+            text-decoration: none;
+            color: #000000;
+            font-size: 11px;
+        }
+        .cate-window{
+            display: flex;
+        }
+        .move{
+/*            border: 5px solid black;*/
+            text-align: center;
+        }
+        .move a{
+            text-decoration: none;
+            margin: 12px 0px 0px 14px;
+            color: #000000;
+            font-size: 11px;
+        }
+        .move img{
+          position: relative;
+          top: 5px;
+        }

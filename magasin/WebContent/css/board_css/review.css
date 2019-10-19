@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+/* reviewList.css */
+.reviewContainer {
+	width: 943px;
+	height:100%;
+	margin:0 auto;
+	padding: 0;
+}
+
+#review>li {
+	list-style: none;
+	background: black;
+	color: white;
+	width: 100px;
+	height: 30px;
+	border: 2px solid black;
+	text-align: center;
+	padding-top: 5px;
+	font-weight: bold;
+}
+
+#review {
+	margin: 0;
+	padding: 0;
+}
+
+.reviewContainer table {
+	text-align: center;
+	border-collapse: collapse;
+}
+
+.review-table th{
+	text-align:center;
+	padding-left: 10px;
+}
+
+.table-wrapper {
+	border: 2px solid black;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.table>tbody>tr>td{
+	vertical-align: middle;
+}
+.lookReview{
+	font-size:13px;
+	color :navy;
+	cursor : pointer;
+}
+.review-contents{
+	/* border:1px solid black; */
+	width:80%;
+	margin:0 auto;
+	display: none;
+}
+
+.review-img-div{
+
+	width:100px;
+	float:left;
+	margin-right : 20px;
+	border: 1px solid white;
+}
+.review-img-container{
+	padding-left:40px;
+	width:300px;
+	float:left;
+}
+
+
+
+/* reviewUpdate.css */
+
+.review-write-table th {
+	text-align: center;
+	padding-left: 10px;
+	width: 190px;
+}
+
+.table>tbody>tr>td {
+	vertical-align: middle;
+}
+
+.reviewContainer td>div {
+	/* border:1px solid black; */
+	float: left;
+}
+
+.product-div {
+	
+	margin-top: 10px;
+	width: 50%;
+}
+
+.star-div {
+	margin-top: 50px;
+	width: 50%;
+}
+
+.review-img-container {
+	border: 1px dashed black;
+	width: 90%;
+	padding: 10px 10px 10px 10px;
+	margin-left: 45px;
+}
+
+.review-img-div {
+	width: 150px;
+	float: left;
+	margin-right: 20px;
+	border: 1px solid white;
+}
+
+.review-content-div {
+	clear: both;
+}
+.review-btn>a {
+	display: block;
+	width: 70px;
+	height: 30px;
+	margin-left: 5px;
+	float: right;
+}
+
+.inputText{
+	font-size: 15px;
+	text-align: center;
+	outline: none;
+	border: none;
+	background: none;
+	border-bottom: 1px dashed #888888;	
+	width: 60%;
+	
+}
+.table>thead>tr>th {
+    border-bottom: none;
+    }
+
+/* reviewWrite.css */
+
+.pdt-div {
+	width:100%;
+	margin-top: 10px;
+	
+}
+
+.review-content-div {
+	clear: both;
+}

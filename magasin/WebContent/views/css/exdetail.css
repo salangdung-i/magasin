@@ -1,0 +1,152 @@
+     div{
+         box-sizing: border-box; 
+         
+     }
+     *{
+         text-decoration: none;
+         list-style-type: none;
+     }
+     .detailContainr{
+         width: 943px;
+/*             border: 5px solid red;*/
+     }
+     .detailContainr p{
+         font-size: 12px;
+     }
+     .detailContainr p>a{
+         font-size: 12px;
+         padding: 0px 2px;
+         color: #000000;
+     }
+     p{
+        text-align: right;
+        color : black;
+     }
+     .detailBorder{
+         display: flex;
+         justify-content: space-between;
+     }
+     .detailInfor{
+         margin: 0 auto;
+         width: 50%;
+         height: 550px;
+/*         border: 5px solid red;*/
+     }
+     .detailImg{
+         width: 440px;
+         height: 500px;
+/*         border: 5px solid red;*/
+         margin-left: 30px; 
+     }
+     .detailImg img{
+         width: 100%;
+         height:100%;
+     }
+     .detailView{
+         width: 100%;
+/*         border: 5px solid black;*/
+     }
+     .detailAllImg{
+         width: 65%;
+         overflow: hidden;
+         margin: 0 auto;
+         margin-top: 40px;
+/*         border: 5px solid red;       */
+     }
+     .detailAllImg img{
+     	padding-bottom: 30px;  	
+     }
+     .color>div{
+         width: 22px;
+         height: 22px;
+         border: 1px solid grey;
+         float: left;
+         margin-right: 10px;
+     }
+     .color1{
+         background: #EFE8D8;
+     }
+      .color2{
+         background: #CC6F34;
+     }
+      .color3{
+         background: #718F39;
+     }
+      .color4{
+         background: #595F7F;
+     }
+     .table-wrapper{
+         width: 80%;
+         margin: 0 auto;
+     }
+     .sale{
+         color:chocolate
+     }
+     .sale>td:nth-of-type(1){
+     	 font-weight:bolder;
+     }
+     .detailTotal{
+         border-top: 1px solid black;
+         padding: 20px 0px 0px 8px;
+         font-size:11px;
+         font-weight: bolder;     
+     }
+     .detailTotal>span{
+     	font-size : 21px;
+        padding-left: 200px;
+        
+     }
+     .table-wrapper>p{
+         text-align: left;
+         margin: 15px 0px 8px 8px;
+         font-size:12px;
+     }
+     .detail-table tr th{
+         font-size: 12px;
+     }
+     .detail-table tr td{
+         font-size: 12px;
+     }
+     .detail-table th{
+         width: 70%;
+     }
+     .detail-table td{
+         width: 30%;
+     }
+     .detailBag{
+         border-top: 1px solid black;
+         margin-top: 50px;
+     }
+     .detailBag>a{
+         padding: 50px 3px 0px 12px;
+         color: black;
+         font-size: 18Px;
+         font-weight: bold;
+     }
+     .ditailView>p:first-child{
+         font-weight:bold;
+     }
+     .detailView p{
+     	 font-size : 12px;
+         text-align: center;
+         padding-top: 20px;
+     }
+     .detailBorderSize{
+         margin: 50px 0px;
+     }
+     .detail-Size th{
+         width: 30px;
+         text-align: center;
+         font-size : 12px;
+     }
+     .detailWash{
+         margin-top: 100px;
+     }
+     .detail-Size{
+         width: 850px;
+         margin: 0 auto;
+     }
+     .detail-Wash{
+         width: 900px;
+         margin: 0 auto;
+     }

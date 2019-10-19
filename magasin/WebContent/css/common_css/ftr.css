@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+	.footer-content1, .footer-content2, .footer-content3 {	
+		 list-style-type: none;
+		 padding: 0;
+	}
+	.footer-content1>li{
+	 	padding-left:84%;
+		padding-right: 1%; 
+	}
+	.footer-content2>li{
+		text-align: center;
+		color: black;
+		width: 100%;
+		font-size: 10px;
+		font-weight: bold;
+
+	}
+	.footer-content2>li>span {
+		font-weight: bold;
+		color: #666;	
+		font-size: 10px;
+	}
+	.footer-content3> li{
+		  text-align: center;
+		  font-size: 10px;
+	}
