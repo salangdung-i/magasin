@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
-
 import kr.magasin.board.model.vo.Notice;
 import kr.magasin.common.JDBCTemplate;
 
@@ -40,18 +38,15 @@ public class NoticeDao {
 				list.add(n);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
-			
 		}
 		return list;
 	}
 
 	public int totalCount(Connection conn) {
-		// TODO Auto-generated method stub
 		int total=0;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -94,7 +89,6 @@ public class NoticeDao {
 				n.setNoticeNo(rset.getInt("notice_no"));
 				n.setNoticeTitle(rset.getString("notice_title"));
 				n.setNoticeWriter(rset.getString("notice_writer"));
-				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
