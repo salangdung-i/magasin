@@ -4,33 +4,67 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import kr.magasin.adminPage.model.dao.CustomerSearchDao;
+import kr.magasin.adminPage.model.vo.Customer;
 import kr.magasin.common.JDBCTemplate;
-import kr.magasin.member.model.vo.Member;
 
 public class CustomerSearchService {
-	public ArrayList<Member> CustomerSearch(String searchIndex, String dateSelect, String selectIndex, String customer) {
+	public ArrayList<Customer> CustomerSearch(String searchIndex, int dateSelect, String selectIndex, String condition) {
+		Connection conn = JDBCTemplate.getConnection();
 		CustomerSearchDao dao = new CustomerSearchDao();
-		if(searchIndex.equals("none")) {
-			// 기간을 특정하지 않은 검색.
-			if(selectIndex.equals("1w")) {
+		ArrayList<Customer> list = null;
+		if (searchIndex.equals("none")) {
+			// 전체 기간 검색.
+			
+			if (selectIndex.equals("customerName")) {
+				// 고객이름 기준
+				list = dao.CustomerSearchAllByName(conn, condition);
 				
-			} else if(selectIndex.equals("2w")) {
 				
-			} else if(selectIndex.equals("1m")) {
+			} else if (selectIndex.equals("customerId")) {
+				// 고객아이디 기준
+				list = dao.CustomerSearchAllById(conn, condition);
 				
-			} else if(selectIndex.equals("3m")) {
+			} else if (selectIndex.equals("prdName")) {
+				// 제품명
+				list = dao.CustomerSearchAllByPrd(conn, condition);
 				
 			}
-			ArrayList<Member> list = dao.CustomerSearchAll(dateSelect, );
 		} else if (searchIndex.equals("purchaseDate")) {
 			// 기간 : 결제일 기준.
-			ArrayList<Member> list = dao.CustomerSearchPurchase();
-		} else if(searchIndex.equals("outDate")) {
+			
+			if (selectIndex.equals("customerName")) {
+				// 고객이름 기준
+				list = dao.CustomerSearchPurByName(conn, condition);
+				
+			} else if (selectIndex.equals("customerId")) {
+				// 고객아이디 기준
+				list = dao.CustomerSearchPurById(conn, condition);
+				
+			} else if (selectIndex.equals("prdName")) {
+				// 제품명
+				list = dao.CustomerSearchPurByPrd(conn, condition);
+				
+			}
+			list = dao.CustomerSearchByPurchase();
+		} else if (searchIndex.equals("outDate")) {
 			// 기간 : 발송일 기준.
-			ArrayList<Member> list = dao.CustomerSearchOutDate();
+
+			if (selectIndex.equals("customerName")) {
+				// 고객이름 기준
+				list = dao.CustomerSearchOutByName(conn, condition);
+				
+			} else if (selectIndex.equals("customerId")) {
+				// 고객아이디 기준
+				list = dao.CustomerSearchOutById(conn, condition);
+				
+			} else if (selectIndex.equals("prdName")) {
+				// 제품명
+				list = dao.CustomerSearchOutByPrd(conn, condition);
+				
+			}
+			list = dao.CustomerSearchByOutDate();
 		}
 		return list;
-		
+
 	}
 }
-

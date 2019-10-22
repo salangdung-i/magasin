@@ -126,38 +126,41 @@ $(document).on("click","button[name=deleteoption]",function(){
 });
 
 $("#activeoption").click(function(){
-   var optioncolor = $('input[name=optioncolor]').val();
-   var optioncolor1 = '';
+   var optionNameTmp = $('input[name=optioncolor]').val();
+   var optionName = '';
    for(i =0; i<optioncolor.length; i++){
-       optioncolor1 += '<th>' + optioncolor[i] + '<th>';
+	   optionName += '<th>' + optionNameTmp[i] + '<th>';
    };
-   var optionvalue = $('input[name=optionvalue]').val();
-   optionvalue = optionvalue.split(',');    
-   var optionvalue1 = '';
+   var optionValueTmp = $('input[name=optionvalue]').val();
+   		optionValueTmp = optionValueTmp.split(',');    
+   var optionValue = '';
    for(i=0; i<optionvalue.length; i++){
-       optionvalue1 += '<td>' + optionvalue[i] + '<td>';
+	   optionValue += '<td>' + optionValueTmp[i] + '<td>';
    } 
     
-    
-   var optioncolor2 = $("#optioncolor1").val();
-   var optioncolor3 = '';
+   var optionNameTmp2 = $("#optioncolor1").val();
+   var optionName2 = '';
     for(i=0; i<optioncolor2.length; i++){
-        optioncolor3 += '<th>' + optioncolor2[i] + '<th>';
+    	optionName2 += '<th>' + optionNameTmp2[i] + '<th>';
     };
     
-    var optionvalue2 = $("#optionvalue1").val();
-    optionvalue2 = optionvalue2.split(',');  
-    var optionvalue3 = '';
+    var optionValueTmp2 = $("#optionvalue1").val();
+    	optionValueTmp2 = optionValueTmp2.split(',');
+    	
+    var optionValue2 = '';
     for(i=0; i<optionvalue2.length;i++){
-        optionvalue3 += '<td>' + optionvalue2[i] + '</td>';
+    	optionValue2 += '<td>' + optionValue2[i] + '</td>';
     }
     
    document.getElementById("optiondiv").innerHTML =
        
-        '<table class="optiontable"><tr><th id="thoption1"><input type="checkbox"></th>'+
-        optioncolor1+optioncolor3+'<th id="thoption2">재고 수량 변경</th><th id="thoption3">삭제</th></tr><tr><td id="thoption4"><input type="checkbox"></td>' + optionvalue1+'<td>'+optionvalue3+'</td>'+
-        '<td id="thoption5"><input type="text" id="thoption6"></td>'+
-        '<td id="thoption7">$50</td></tr></table>';
+        '<table class="optiontable">'+
+	        '<tr>'+
+	        	'<th id="thoption1"><input type="checkbox"></th>'+
+	        		optioncolor1 + optioncolor3 +
+	        		'<th id="thoption2">재고 수량 변경</th><th id="thoption3">삭제</th></tr>'+
+	        '<tr><td id="thoption4"><input type="checkbox"></td>' + optionvalue1 + '<td>' + optionvalue3 + '</td><td id="thoption5"><input type="text" id="thoption6"></td><td id="thoption7">$50</td></tr>' +
+        '</table>';
         
     
 });

@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.magasin.adminPage.model.service.CustomerSearch;
 import kr.magasin.adminPage.model.service.CustomerSearchService;
 
 /**
@@ -34,11 +33,12 @@ public class CustomerSearchServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String searchIndex = request.getParameter("searchIndex");
 		String selectIndex = request.getParameter("selectIndex");
-		String dateSelect = request.getParameter("dateSelect");
+		int dateSelect = Integer.parseInt(request.getParameter("dateSelect"));
 		String customer = request.getParameter("customer");
 		
 		CustomerSearchService service = new CustomerSearchService();
-		service.CustomerSearch(searchIndex, dateSelect, selectIndex, customer);
+		ArrayList<Memeber> list = service.CustomerSearch(searchIndex, dateSelect, selectIndex, customer);
+		
 	}
 
 	/**

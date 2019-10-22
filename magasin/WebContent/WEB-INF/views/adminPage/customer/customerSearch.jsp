@@ -24,10 +24,10 @@
 				</div>
 				<div class="top-date-select">
 					<input id="dateSelect" name="dateSelect" class="dateSelect" type="hidden" />
-					<button value="1w" type="button">1주일</button>
-					<button value="2w" type="button">2주일</button>
-					<button value="1m" type="button">1달</button>
-					<button value="3m" type="button">3달</button>
+					<button value="7" type="button">1주일</button>
+					<button value="14" type="button">2주일</button>
+					<button value="30" type="button">1달</button>
+					<button value="90" type="button">3달</button>
 				</div>
 			</div>
 			<div class="search-bottom">
@@ -36,12 +36,11 @@
 					<select name="selectIndex">
 						<option value="customerName">고객 이름</option>
 						<option value="customerId">고객 아이디</option>
-						<option value="prdName">상품 이름</option>
-						<option value="prdCount">상품 개수</option>
+						<option value="prdName">구매상품이름</option>
 					</select>
 				</div>
 				<div class="bottom-input">
-					<input name="customer" type="text">
+					<input name="condition" type="text">
 				</div>
 			</div>
 			<div class="bottom-btn">
@@ -61,7 +60,8 @@
 						<td>고객 이름</td>
 						<td>상품 이름</td>
 						<td>상품 개수</td>
-						<td>결제일 | 발송일</td>
+						<td>결제일</td>
+						<td>발송일</td>
 					</tr>
 				</table>
 			</div>
@@ -73,6 +73,7 @@
 						<td>pdt1</td>
 						<td>2</td>
 						<td>2019-10-15</td>
+						<td>2019-10-16</td>
 					</tr>
 				</table>
 			</div>
