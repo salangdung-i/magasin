@@ -113,8 +113,8 @@
 
 .customer-bottom > .bottom-list > .list-title td,
 .customer-bottom > .bottom-list > .list-content td {
-  max-width: 275px;
-  min-width: 275px;
+  max-width: 20%;
+  max-width: 20%;
   height: 40px;
   line-height: 40px;
 }
