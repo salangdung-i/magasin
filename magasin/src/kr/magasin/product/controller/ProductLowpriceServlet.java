@@ -2,26 +2,28 @@ package kr.magasin.product.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import kr.magasin.product.model.service.ProductService;
 import kr.magasin.product.model.vo.Product;
 
 /**
- * Servlet implementation class ProductListServlet
+ * Servlet implementation class ProductLowpriceServlet
  */
-@WebServlet(name = "ProductList", urlPatterns = { "/productList" })
-public class ProductListServlet extends HttpServlet {
+@WebServlet(name = "ProductLowprice", urlPatterns = { "/productLowprice" })
+public class ProductLowpriceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductListServlet() {
+    public ProductLowpriceServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,18 +32,19 @@ public class ProductListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		request.setCharacterEncoding("utf-8");
+		
 		ProductService service = new ProductService();
-		ArrayList<Product> list = service.productList();
+		
+		ArrayList<Product> lop = service.productLowPrice();
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/views/prdPage/lists.jsp");
 		
-		request.setAttribute("Product", list);
+		request.setAttribute("Product", lop);
+		
 		rd.forward(request, response);
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-
+		
 	}
 
 	/**

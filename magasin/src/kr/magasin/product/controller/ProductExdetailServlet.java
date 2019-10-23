@@ -2,26 +2,28 @@ package kr.magasin.product.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import kr.magasin.product.model.service.ProductService;
 import kr.magasin.product.model.vo.Product;
 
 /**
- * Servlet implementation class ProductListServlet
+ * Servlet implementation class ProductExdetailServlet
  */
-@WebServlet(name = "ProductList", urlPatterns = { "/productList" })
-public class ProductListServlet extends HttpServlet {
+@WebServlet(name = "ProductExdetail", urlPatterns = { "/productExdetail" })
+public class ProductExdetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductListServlet() {
+    public ProductExdetailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,18 +32,20 @@ public class ProductListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		request.setCharacterEncoding("utf-8");
-		ProductService service = new ProductService();
-		ArrayList<Product> list = service.productList();
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/views/prdPage/lists.jsp");
-		
-		request.setAttribute("Product", list);
-		rd.forward(request, response);
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-
+		request.setCharacterEncoding("utf-8");
+		
+		int prdId = Integer.parseInt(request.getParameter("prdId"));
+		
+		ProductService service = new ProductService();
+		
+		Product prd = service.ProductdetailId(prdId);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/views/prdPage/exdetail.jsp");
+		
+		request.setAttribute("productId", prd);
+		rd.forward(request, response);
+		
 	}
 
 	/**
