@@ -1,28 +1,28 @@
-package kr.magasin.member.controller;
+package kr.magasin.board.controller.review;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.magasin.member.model.service.MemberService;
-import kr.magasin.member.model.vo.Member;
+import kr.magasin.board.model.service.ReviewService;
+import kr.magasin.board.model.vo.Review;
 
 /**
- * Servlet implementation class AjaxCheckEmailServlet
+ * Servlet implementation class ReviewUpdateServlet
  */
-@WebServlet(name = "AjaxCheckEmail", urlPatterns = { "/ajaxCheckEmail" })
-public class AjaxCheckEmailServlet extends HttpServlet {
+@WebServlet(name = "ReviewUpdate", urlPatterns = { "/reviewUpdate" })
+public class ReviewUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AjaxCheckEmailServlet() {
+    public ReviewUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,15 +31,17 @@ public class AjaxCheckEmailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
-		MemberService service = new MemberService();
-		Member m = service.selectOne2(email);
-
-		PrintWriter out = response.getWriter();
-		if(m==null) {
-			out.print(1);
+		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
+		ReviewService service = new ReviewService();
+		Review r = service.reviewOne(reviewNo);
+		if(r!=null) {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/board/review/reviewUpdateTest.jsp");
+			request.setAttribute("review", r);
+			rd.forward(request, response);
 		}else {
-			out.print(0);
+			response.sendRedirect("/reviewList");
 		}
 	}
 

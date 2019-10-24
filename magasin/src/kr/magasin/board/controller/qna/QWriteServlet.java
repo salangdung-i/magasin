@@ -1,28 +1,28 @@
-package kr.magasin.member.controller;
+package kr.magasin.board.controller.qna;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import kr.magasin.member.model.service.MemberService;
 import kr.magasin.member.model.vo.Member;
 
 /**
- * Servlet implementation class AjaxCheckEmailServlet
+ * Servlet implementation class QWriteServlet
  */
-@WebServlet(name = "AjaxCheckEmail", urlPatterns = { "/ajaxCheckEmail" })
-public class AjaxCheckEmailServlet extends HttpServlet {
+@WebServlet(name = "QWrite", urlPatterns = { "/qWrite" })
+public class QWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AjaxCheckEmailServlet() {
+    public QWriteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,15 +31,23 @@ public class AjaxCheckEmailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
-		MemberService service = new MemberService();
-		Member m = service.selectOne2(email);
+		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+	/*
+		String prdName = request.getParameter("prdName");
+		String prdSnImg = request.getParameter("prdSnImg");*/
+		
+		//임시
 
-		PrintWriter out = response.getWriter();
-		if(m==null) {
-			out.print(1);
+		String prdName = "시발";
+		String prdSnImg = "test.jpg";
+		if(prdName==null&&prdSnImg==null) {
+			response.sendRedirect("/qnaList");
 		}else {
-			out.print(0);
+			request.setAttribute("prdName", prdName);
+			request.setAttribute("prdSnImg", prdSnImg);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/board/qna/qWrite2Test.jsp");
+			rd.forward(request, response);
 		}
 	}
 
