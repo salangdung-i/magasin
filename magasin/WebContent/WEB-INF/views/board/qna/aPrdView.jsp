@@ -1,5 +1,7 @@
+<%@page import="kr.magasin.board.model.vo.APrd"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <% APrd a = (APrd)request.getAttribute("a"); %>
     <%  %>
 <!DOCTYPE html>
 <html>
@@ -42,31 +44,25 @@
 							<tr>
 								<th>subject</th>
 								<td>
-									<img src="/views/test_board/test_img/realRe.png">A 제목제목
+									<img src="/img/board_img/realRe.png"><%=a.getaTitle() %>
 								</td>
 							</tr>
 							<tr>
 								<th>Writer</th>
-								<td><img src="/common_img/footerlogo2.png" height="27">
+								<td><img src="/img/common_img/footerlogo2.png" height="27">
 								<input type="hidden" name="aWriter" class="inputText"
 								value="admin"></td>
 							</tr>
 							<tr>
 								<th>Date</th>
-								<td>19.10.17</td>
+								<td><%=a.getaDate() %></td>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 							<td colspan="2">
-								<div style="text-align:center;">
-								<h1>내용</h1>
-								<h1>내용</h1>
-								<h1>내용</h1>
-								<h1>내용</h1>
-								<h1>내용</h1>
-								<h1>내용</h1>
-								<h1>내용</h1>
+								<div style="text-align:center; width:800px; height:300px; margin: 0 auto; padding-top:30px;">
+									<%=a.getaCont() %>
 								</div>
 								
 								</td>
@@ -75,10 +71,12 @@
 				</div>
 				<div class="qna-btn">
 					<br>
-					<a href="/views/test_board/qna/qnaListTest.jsp" class="btn btn-default btn-md" >List</a>
+					<a href="/qnaList" class="btn btn-default btn-md" >List</a>
+					<%if(m!=null&& m.getId().equals("admin")){ %>
 					<!-- 관리자 일때만 보이게~ -->
-					<!-- <a href="#" class="btn btn-default btn-md" >삭제</a>
-					<a href="#" class="btn btn-default btn-md" >수정</a> -->
+					<a href="/aDelete?ctgr=prd&aNo=<%=a.getaNo() %>&qNo=<%=a.getaQPrdNoRef() %>" class="btn btn-default btn-md" >삭제</a>
+					<a href="/aUpdate?ctgr=prd&aNo=<%=a.getaNo() %>" class="btn btn-default btn-md" >수정</a>
+					<%} %>
 					
 				</div>
 			</div>

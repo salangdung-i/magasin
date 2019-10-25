@@ -9,20 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.magasin.board.model.service.QnAService;
-import kr.magasin.board.model.vo.QEtc;
-
 /**
- * Servlet implementation class QEtcViewServlet
+ * Servlet implementation class AWriteServlet
  */
-@WebServlet(name = "QEtcView", urlPatterns = { "/qEtcView" })
-public class QEtcViewServlet extends HttpServlet {
+@WebServlet(name = "AWrite", urlPatterns = { "/aWrite" })
+public class AWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QEtcViewServlet() {
+    public AWriteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,28 +28,27 @@ public class QEtcViewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
-//		qNo 받아오기
-		int qNo = Integer.parseInt(request.getParameter("qNo"));
-		String id=  request.getParameter("id");
-		QnAService service = new QnAService();
-		QEtc q = service.qEtcOne(qNo);
-
-		if(q!=null && id!=null && (q.getqWriter().equals(id)||id.equals("admin"))){
-			request.setAttribute("qEtc", q);
-			RequestDispatcher rd= request.getRequestDispatcher("/WEB-INF/views/board/qna/qView1Test.jsp");
+		String ctgr = request.getParameter("ctgr");
+		if(ctgr.equals("etc")) {
+			int qEtcNo = Integer.parseInt(request.getParameter("qNo"));
+			request.setAttribute("qNo", qEtcNo);
+			System.out.println(qEtcNo);
+			request.setAttribute("ctgr", ctgr);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/board/qna/aWriteTest.jsp");
 			rd.forward(request, response);
-		}else if(id==null){
-				response.sendRedirect("/views/member/login.jsp");
-
-		}else {
-			request.setAttribute("msg", "접근권한이 없습니다.");
-			request.setAttribute("loc", "/qnaList");
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+				
+		}else if(ctgr.equals("prd")){
+			int qPrdNo = Integer.parseInt(request.getParameter("qNo"));
+			request.setAttribute("qNo", qPrdNo);
+			System.out.println(qPrdNo);
+			request.setAttribute("ctgr", ctgr);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/board/qna/aWriteTest.jsp");
 			rd.forward(request, response);
+				
 		}
-		
+			
+				
 	}
 
 	/**

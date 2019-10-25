@@ -1,8 +1,6 @@
 package kr.magasin.board.controller.qna;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,18 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.magasin.board.model.service.QnAService;
 import kr.magasin.board.model.vo.QEtc;
+import kr.magasin.board.model.vo.QPrd;
 
 /**
- * Servlet implementation class QEtcViewServlet
+ * Servlet implementation class QUpdateEndServlet
  */
-@WebServlet(name = "QEtcView", urlPatterns = { "/qEtcView" })
-public class QEtcViewServlet extends HttpServlet {
+@WebServlet(name = "QUpdateEnd", urlPatterns = { "/qUpdateEnd" })
+public class QUpdateEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QEtcViewServlet() {
+    public QUpdateEndServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,26 +32,28 @@ public class QEtcViewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
-//		qNo 받아오기
+		String ctgr = request.getParameter("ctgr");
 		int qNo = Integer.parseInt(request.getParameter("qNo"));
-		String id=  request.getParameter("id");
-		QnAService service = new QnAService();
-		QEtc q = service.qEtcOne(qNo);
-
-		if(q!=null && id!=null && (q.getqWriter().equals(id)||id.equals("admin"))){
-			request.setAttribute("qEtc", q);
-			RequestDispatcher rd= request.getRequestDispatcher("/WEB-INF/views/board/qna/qView1Test.jsp");
-			rd.forward(request, response);
-		}else if(id==null){
-				response.sendRedirect("/views/member/login.jsp");
-
-		}else {
-			request.setAttribute("msg", "접근권한이 없습니다.");
-			request.setAttribute("loc", "/qnaList");
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
-			rd.forward(request, response);
+		String qTitle = request.getParameter("qTitle");
+		String qWriter = request.getParameter("qWriter");
+		String qCont = request.getParameter("qContent");
+		String qCtgr = request.getParameter("qCtgr");
+		QnAService service = new  QnAService();
+		if(ctgr.equals("etc")) {
+			QEtc q = new QEtc(qNo, qCtgr, qTitle, qWriter, qCont, null, 0, null, null); 
+			int result = service.qEtcUpdate(q);
+			if(result>0) {
+				System.out.println("수정 완료");
+				response.sendRedirect("/qnaList");
+			}
+			
+		}else if(ctgr.equals("prd")) {
+			QPrd q = new QPrd(qNo, qCtgr, qTitle, qWriter, qCont, null, 0, null, null, null, null);
+			int result = service.qPrdUpdate(q);
+			if(result>0) {
+				response.sendRedirect("/qnaList");
+			}
 		}
-		
 	}
 
 	/**
