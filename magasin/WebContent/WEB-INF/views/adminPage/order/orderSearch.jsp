@@ -33,6 +33,7 @@
 	</div>
 
 	<div class="order-search">
+		<div style="text-align: right;"> ※ 배송완료된 주문건의 경우, 배송완료일로부터 14일간만 조회됩니다.</div>
 		<div class="search-top">
 			<div class="top-title">조회기간</div>
 			<div class="top-select">
