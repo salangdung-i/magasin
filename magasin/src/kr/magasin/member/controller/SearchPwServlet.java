@@ -13,16 +13,16 @@ import kr.magasin.member.model.service.MemberService;
 import kr.magasin.member.model.vo.Member;
 
 /**
- * Servlet implementation class CheckIdServlet
+ * Servlet implementation class SearchPwServlet
  */
-@WebServlet(name = "CheckId", urlPatterns = { "/checkId" })
-public class CheckIdServlet extends HttpServlet {
+@WebServlet(name = "SearchPw", urlPatterns = { "/searchPw" })
+public class SearchPwServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckIdServlet() {
+    public SearchPwServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,25 +31,38 @@ public class CheckIdServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
 		//1. 인코딩
 		request.setCharacterEncoding("utf-8");
 		//2. 변수저장
-		String memberId = request.getParameter("checkId"); //checkId속성 가져오기
+		//String memberId = request.getParameter("checkId"); //checkId속성 가져오기
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
 		//3. 비지니스 로직처리
 		MemberService service = new MemberService();
-		Member m = service.selectOne(memberId);
+		Member m1 = service.searchId(name,email);
+		Member m2 = service.searchId2(name, phone);
 		
+		//-----------하는중-----------
 		//4. view 처리
-		if(m==null) { //아이디가 중복되지 않아서 사용가능
+		if(m1==null) {
 			request.setAttribute("result", true);
 		}else {
 			request.setAttribute("result", false);
 		}
-		request.setAttribute("checkId", memberId);
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/checkId.jsp");
+		request.setAttribute("email", email);
+		
+		if(m2==null) { 
+			request.setAttribute("result", true);
+		}else {
+			request.setAttribute("result", false);
+		}
+		request.setAttribute("phone", phone);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/searchId.jsp");
+		RequestDispatcher rd2 = request.getRequestDispatcher("/WEB-INF/views/member/searchPw.jsp");
 		rd.forward(request, response);
+		rd2.forward(request, response);
 	}
 
 	/**
