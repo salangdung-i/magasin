@@ -16,29 +16,31 @@ public class OrderSearchService {
 		OrderSearchDao dao = new OrderSearchDao();
 		ArrayList<Order> list = new ArrayList<Order>();
 
-		if (searchIndex.equals("all2")) {
+		if (timeIndex.equals("all2")) {
 			// 전체 기간 검색.
-			if (detailIndex.equals("customerName")) {
+			if (detailIndex.equals("customerName2")) {
 				// 고객이름 기준
-				list = dao.CustomerSearchAllByName(conn, order);
+				list = dao.OrderSearchAllByName(conn, order);
 				try {
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 				return list;
-			} else if (detailIndex.equals("customerId")) {
+				
+			} else if (detailIndex.equals("customerId2")) {
 				// 고객아이디 기준
-				list = dao.CustomerSearchAllById(conn, order);
+				list = dao.OrderSearchAllById(conn, order);
 				try {
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 				return list;
-			} else if (detailIndex.equals("prdName")) {
+				
+			} else if (detailIndex.equals("prdName2")) {
 				// 제품명
-				list = dao.CustomerSearchAllByPrd(conn, order);
+				list = dao.OrderSearchAllByPrd(conn, order);
 
 				try {
 					conn.close();
@@ -46,36 +48,40 @@ public class OrderSearchService {
 					e.printStackTrace();
 				}
 				return list;
+				
+			} else {
+				// 주문 상태에 따른 모든 검색.
+				// detailIndex가 orderStatus의 역할을 함.
 			}
-		} else if (searchIndex.equals("purchaseDate2")) {
+		} /*else if (timeIndex.equals("purchaseDate2")) {
 			// 기간 : 결제일 기준.
 			if (detailIndex.equals("customerName")) {
 				// 고객이름 기준
-				list = dao.CustomerSearchPurByName(conn, dateSelect, customer);
+				list = dao.OrderSearchPurByName(conn, dateSelect, customer);
 				return list;
 			} else if (detailIndex.equals("customerId")) {
 				// 고객아이디 기준
-				list = dao.CustomerSearchPurById(conn, dateSelect, customer);
+				list = dao.OrderSearchPurById(conn, dateSelect, customer);
 				return list;
 			} else if (detailIndex.equals("prdName")) {
 				// 제품명
-				list = dao.CustomerSearchPurByPrd(conn, dateSelect, customer);
+				list = dao.OrderSearchPurByPrd(conn, dateSelect, customer);
 				return list;
 
 			}
-		} else if (searchIndex.equals("outDate2")) {
+		} else if (timeIndex.equals("outDate2")) {
 			// 기간 : 발송일 기준.
 			if (detailIndex.equals("customerName")) {
 				// 고객이름 기준
-				list = dao.CustomerSearchOutByName(conn, dateSelect, customer);
+				list = dao.OrderSearchOutByName(conn, dateSelect, customer);
 				return list;
 			} else if (detailIndex.equals("customerId")) {
 				// 고객아이디 기준
-				list = dao.CustomerSearchOutById(conn, dateSelect, customer);
+				list = dao.OrderSearchOutById(conn, dateSelect, customer);
 				return list;
 			} else if (detailIndex.equals("prdName")) {
 				// 제품명
-				list = dao.CustomerSearchOutByPrd(conn, dateSelect, customer);
+				list = dao.OrderSearchOutByPrd(conn, dateSelect, customer);
 				return list;
 			}
 		}
@@ -84,6 +90,7 @@ public class OrderSearchService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	*/
 		return null;
 	}
 }

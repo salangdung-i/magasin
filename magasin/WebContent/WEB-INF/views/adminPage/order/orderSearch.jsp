@@ -56,10 +56,10 @@
 		<div class="search-bottom">
 			<div class="bottom-title">상세조건</div>
 			<div class="bottom-select">
-				<select name="detailIndex">
-					<option value = "allOrder">전체주문</option>
+				<select name="detailIndex" class="detailIndex">
+					<option value="none3">--선택--</option>
 					<option value = "1">신규주문</option>
-					<option value = "0">취소요청</option>
+					<option value = "0">주문취소요청</option>
 					<option value = "-1">주문취소완료</option>
 					<option value = "2">배송준비중</option>
 					<option value = "3">배송중</option>
@@ -72,7 +72,7 @@
 					<option value = "prdName2">구매상품이름</option>
 				</select>
 			</div>
-			<div class="bottom-input">
+			<div class="bottom-input" style="display: none;">
 				<input name="order" type="text" />
 			</div>
 		</div>
@@ -96,6 +96,7 @@
 						</td>
 						<td>고객아이디</td>
 						<td>고객이름</td>
+						<td>배송주소</td>
 						<td>상품이름</td>
 						<td>상품개수</td>
 						<td>결제일시</td>
@@ -111,6 +112,7 @@
 						<td><input type="checkbox" class="orderCheckBox"></td>
 						<td>idid1</td>
 						<td>name1</td>
+						<div id="five" class="button"><td>자세히 보기</td></div>
 						<td>pdt1</td>
 						<td>2</td>
 						<td>2019-08-09</td>
@@ -124,6 +126,8 @@
 	</div>
 </div>
 
+
+
 <script type="text/javascript" src="/js/adminPage/orderAjax.js"></script>
 
 <script>
@@ -135,4 +139,18 @@
 			$(".top-date-select").hide();
 		}
 	});
+	
+	$(".detailIndex").change(function(){
+		var isDate = $(".detailIndex>option:selected").val();
+		if(isDate != "customerName2" && isDate != "customerId2" && isDate != "prdName2"){
+			$(".bottom-input").hide();
+		} else {
+			$(".bottom-input").show();
+		}
+	});
+	
+	$(".purAddr").click(function(){
+		alert("!!!!!");
+	});
+
 </script>

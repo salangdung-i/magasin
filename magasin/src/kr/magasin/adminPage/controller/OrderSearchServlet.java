@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import kr.magasin.adminPage.model.service.CustomerSearchService;
 import kr.magasin.adminPage.model.service.OrderSearchService;
-import kr.magasin.adminPage.model.vo.Customer;
 import kr.magasin.adminPage.model.vo.Order;
 
 /**
@@ -56,9 +54,8 @@ public class OrderSearchServlet extends HttpServlet {
 
 		OrderSearchService service = new OrderSearchService();
 		ArrayList<Order> list = service.OrderSearch(timeIndex, dateSelect2, detailIndex, order);
-		if(list.isEmpty()) {
-			list = new ArrayList<Order>();
-			list.set(0, new Order("", "", "", "", "", "", "", ""));
+		if(list.isEmpty() || list.get(0).getOrderCusPurDate() == "내용없음") {
+			list.set(0, new Order(999, "", "", "", "", "", "", "", 999));
 		}
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
