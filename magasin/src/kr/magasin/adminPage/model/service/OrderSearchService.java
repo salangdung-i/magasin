@@ -4,39 +4,41 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import kr.magasin.adminPage.model.dao.CustomerSearchDao;
-import kr.magasin.adminPage.model.vo.Customer;
+import kr.magasin.adminPage.model.dao.OrderSearchDao;
+import kr.magasin.adminPage.model.vo.Order;
 import kr.magasin.common.JDBCTemplate;
 
-public class CustomerSearchService {
-	public ArrayList<Customer> CustomerSearch(String searchIndex, int dateSelect, String selectIndex, String customer) {
-		Connection conn = JDBCTemplate.getConnection();
-		CustomerSearchDao dao = new CustomerSearchDao();
-		ArrayList<Customer> list = new ArrayList<Customer>();
+public class OrderSearchService {
 
-		if (searchIndex.equals("all")) {
+	public ArrayList<Order> OrderSearch(String timeIndex, int dateSelect2, String detailIndex, String order) {
+
+		Connection conn = JDBCTemplate.getConnection();
+		OrderSearchDao dao = new OrderSearchDao();
+		ArrayList<Order> list = new ArrayList<Order>();
+
+		if (searchIndex.equals("all2")) {
 			// 전체 기간 검색.
-			if (selectIndex.equals("customerName")) {
+			if (detailIndex.equals("customerName")) {
 				// 고객이름 기준
-				list = dao.CustomerSearchAllByName(conn, customer);
+				list = dao.CustomerSearchAllByName(conn, order);
 				try {
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 				return list;
-			} else if (selectIndex.equals("customerId")) {
+			} else if (detailIndex.equals("customerId")) {
 				// 고객아이디 기준
-				list = dao.CustomerSearchAllById(conn, customer);
+				list = dao.CustomerSearchAllById(conn, order);
 				try {
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 				return list;
-			} else if (selectIndex.equals("prdName")) {
+			} else if (detailIndex.equals("prdName")) {
 				// 제품명
-				list = dao.CustomerSearchAllByPrd(conn, customer);
+				list = dao.CustomerSearchAllByPrd(conn, order);
 
 				try {
 					conn.close();
@@ -45,33 +47,33 @@ public class CustomerSearchService {
 				}
 				return list;
 			}
-		} else if (searchIndex.equals("purchaseDate")) {
+		} else if (searchIndex.equals("purchaseDate2")) {
 			// 기간 : 결제일 기준.
-			if (selectIndex.equals("customerName")) {
+			if (detailIndex.equals("customerName")) {
 				// 고객이름 기준
 				list = dao.CustomerSearchPurByName(conn, dateSelect, customer);
 				return list;
-			} else if (selectIndex.equals("customerId")) {
+			} else if (detailIndex.equals("customerId")) {
 				// 고객아이디 기준
 				list = dao.CustomerSearchPurById(conn, dateSelect, customer);
 				return list;
-			} else if (selectIndex.equals("prdName")) {
+			} else if (detailIndex.equals("prdName")) {
 				// 제품명
 				list = dao.CustomerSearchPurByPrd(conn, dateSelect, customer);
 				return list;
 
 			}
-		} else if (searchIndex.equals("outDate")) {
+		} else if (searchIndex.equals("outDate2")) {
 			// 기간 : 발송일 기준.
-			if (selectIndex.equals("customerName")) {
+			if (detailIndex.equals("customerName")) {
 				// 고객이름 기준
 				list = dao.CustomerSearchOutByName(conn, dateSelect, customer);
 				return list;
-			} else if (selectIndex.equals("customerId")) {
+			} else if (detailIndex.equals("customerId")) {
 				// 고객아이디 기준
 				list = dao.CustomerSearchOutById(conn, dateSelect, customer);
 				return list;
-			} else if (selectIndex.equals("prdName")) {
+			} else if (detailIndex.equals("prdName")) {
 				// 제품명
 				list = dao.CustomerSearchOutByPrd(conn, dateSelect, customer);
 				return list;
