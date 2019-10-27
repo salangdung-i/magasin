@@ -83,7 +83,6 @@ public class OrderSearchService {
 			e.printStackTrace();
 		}
 	*/
-
 		try {
 			conn.close();
 		} catch (SQLException e) {
