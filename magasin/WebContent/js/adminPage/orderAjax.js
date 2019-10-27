@@ -16,11 +16,24 @@ $("#orderSearchBtn").click(function() {
 	const countList2 = $("#countList2");
 	// 검색된 목록 개수
 	
+	const oneShotForOrder = $(".oneShotForOrder");
+	oneShotForOrder.removeClass('o1')
+	.removeClass('o2').removeClass('o3')
+	.removeClass('o4').removeClass('o5')
+	.removeClass('o6').removeClass('o7')
+	.removeClass('o0').removeClass('oc');
+	
+	if(-2 < detailIndex && detailIndex < 8){
+		oneShotForOrder.show();
+	} else {
+		oneShotForOrder.hide();
+	}
+	
 	const tbody = $("#orderResult tbody");
-	if (timeIndex == "none2" || detailIndex == "none3") {
+	if (timeIndex == "none2") {
 		tbody.html('조회기간을 선택해주세요.');
 		countList2.html('0');
-	} else if (order == "") {
+	} else if (order == "" && (detailIndex == "customerName2" || detailIndex == "customerId2" || detailIndex == "prdName2" )) {
 		tbody.html('검색어를 입력해주세요');
 		countList2.html('0');
 	} else {
@@ -34,7 +47,7 @@ $("#orderSearchBtn").click(function() {
 				order : order
 			},
 			success : function(data) {
-				if (data[0].orderNum == 999) {
+				if(data[0].orderNum == 999 || data[0].orderCusPurDate == "내용없음") {
 					tbody.html('검색결과 없음');
 					countList.html('0');
 				} else {
@@ -94,30 +107,39 @@ $("#orderSearchBtn").click(function() {
 						switch(data[index].orderStatus){
 						case 1:
 							temp = $("<button class='o1'>").html(decodeURIComponent("신규주문"));
+							oneShotForOrder.addClass('o1');
 						break;
 						case 2:
 							temp = $("<button class='o2'>").html(decodeURIComponent("배송준비중"));
+							oneShotForOrder.addClass('o2');
 							break;
 						case 3:
 							temp = $("<button class='o3'>").html(decodeURIComponent("배송중"));
+							oneShotForOrder.addClass('o3');
 							break;
 						case 4:
 							temp = $("<button class='o4'>").html(decodeURIComponent("배송완료"));
+							oneShotForOrder.addClass('o4');
 							break;
 						case 5:
 							temp = $("<button class='o5'>").html(decodeURIComponent("반품신청"));
+							oneShotForOrder.addClass('o5');
 							break;
 						case 6:
 							temp = $("<button class='o6'>").html(decodeURIComponent("반품중"));
+							oneShotForOrder.addClass('o6');
 							break;
 						case 7:
 							temp = $("<button class='o7'>").html(decodeURIComponent("반품완료"));
+							oneShotForOrder.addClass('o7');
 							break;
 						case 0:
 							temp = $("<button class='o0'>").html(decodeURIComponent("주문취소요청"));
+							oneShotForOrder.addClass('o0');
 							break;
 						case -1:
 							temp = $("<button class='oc'>").html(decodeURIComponent("취소완료"));
+							oneShotForOrder.addClass('oc');
 							break;
 						}
 						orderStatus.append(temp);

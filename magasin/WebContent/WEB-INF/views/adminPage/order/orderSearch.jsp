@@ -84,7 +84,7 @@
 	<div class="order-bottom">
 		<div class="bottom-title">
 			<div>목록 (총 <span id="countList2">0</span>개)</div>
-			<div>일괄처리</div>
+			<div><button class="oneShotForOrder" style="display: none;">일괄처리</button></div>
 		</div>
 		<div class="bottom-list">
 			<div class="list-title">
@@ -94,6 +94,7 @@
 						<input type="checkbox" id="orderAll"
 							class="orderCheckBox">
 						</td>
+						<!-- 
 						<td>고객아이디</td>
 						<td>고객이름</td>
 						<td>배송주소</td>
@@ -103,22 +104,22 @@
 						<td>발송일시</td>
 						<td>배송완료일시</td>
 						<td>현재 상태</td>
+						 -->
+						<td>고객아이디</td>
+						<td style="padding-right: 5px;">고객이름</td>
+						<td style="padding-right: 8px;">배송주소</td>
+						<td style="padding-right: 10px;">상품이름</td>
+						<td style="padding-right: 15px;">상품개수</td>
+						<td style="padding-right: 18px;">결제일시</td>
+						<td style="padding-right: 20px;">발송일시</td>
+						<td style="padding-right: 25px;">배송완료일시</td>
+						<td style="padding-right: 30px;">현재 상태</td>
 					</tr>
 				</table>
 			</div>
-			<div class="list-content">
+			<div class="list-content" style="padding-right: 10px;">
 				<table id="orderResult" >
 					<tr>
-						<td><input type="checkbox" class="orderCheckBox"></td>
-						<td>idid1</td>
-						<td>name1</td>
-						<div id="five" class="button"><td>자세히 보기</td></div>
-						<td>pdt1</td>
-						<td>2</td>
-						<td>2019-08-09</td>
-						<td>2019-08-10</td>
-						<td>2019-08-19</td>
-						<td><button class="status" value="">발주확인</button></td>
 					</tr>
 				</table>
 			</div>
@@ -149,8 +150,14 @@
 		}
 	});
 	
-	$(".purAddr").click(function(){
-		alert("!!!!!");
+	$(function(){ //전체선택 체크박스 클릭
+		$("#orderAll").click(function(){ //만약 전체 선택 체크박스가 체크된상태일 경우
+			if($("#orderAll").prop("checked")) { //해당화면에 전체 checkbox들을 체크해준다
+				$("input[class=orderCheckBox]").prop("checked",true); // 전체선택 체크박스가 해제된 경우
+				} else { //해당화면에 모든 checkbox들의 체크를해제시킨다.
+					$("input[class=orderCheckBox]").prop("checked",false);
+				}
+		});
 	});
 
 </script>

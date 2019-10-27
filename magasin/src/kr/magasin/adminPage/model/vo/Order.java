@@ -4,6 +4,7 @@ public class Order {
 	private int orderNum;
 	private String orderCusId;
 	private String orderCusName;
+	private String orderCusAddr;
 	private String orderCusPrdName;
 	private String orderCusPrdCount;
 	private String orderCusPurDate;
@@ -16,12 +17,14 @@ public class Order {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Order(int orderNum, String orderCusId, String orderCusName, String orderCusPrdName, String orderCusPrdCount,
-			String orderCusPurDate, String orderCusOutDate, String orderCusComDate, int orderStatus) {
+	public Order(int orderNum, String orderCusId, String orderCusName, String orderCusAddr, String orderCusPrdName,
+			String orderCusPrdCount, String orderCusPurDate, String orderCusOutDate, String orderCusComDate,
+			int orderStatus) {
 		super();
 		this.orderNum = orderNum;
 		this.orderCusId = orderCusId;
 		this.orderCusName = orderCusName;
+		this.orderCusAddr = orderCusAddr;
 		this.orderCusPrdName = orderCusPrdName;
 		this.orderCusPrdCount = orderCusPrdCount;
 		this.orderCusPurDate = orderCusPurDate;
@@ -29,6 +32,15 @@ public class Order {
 		this.orderCusComDate = orderCusComDate;
 		this.orderStatus = orderStatus;
 	}
+
+	public String getOrderCusAddr() {
+		return orderCusAddr;
+	}
+
+	public void setOrderCusAddr(String orderCusAddr) {
+		this.orderCusAddr = orderCusAddr;
+	}
+
 	public int getOrderNum() {
 		return orderNum;
 	}
