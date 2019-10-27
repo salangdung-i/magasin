@@ -19,6 +19,7 @@ public class ProductService {
       return list;
    }
 
+
    public int delete(int prdId) {
       Connection conn = JDBCTemplate.getConnection();
       ProductDao dao = new ProductDao();
@@ -31,6 +32,7 @@ public class ProductService {
       JDBCTemplate.close(conn);
       return result;
    }
+
 
    public int insertProduct(Product p) {
       Connection conn = JDBCTemplate.getConnection();
