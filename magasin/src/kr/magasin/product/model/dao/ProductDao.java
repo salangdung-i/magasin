@@ -52,6 +52,7 @@ public class ProductDao {
          pstmt.setString(7, p.getPrdSnImgpath());
          pstmt.setString(8, p.getPrdFilename());
          pstmt.setString(9, p.getPrdFilepath());
+
          result = pstmt.executeUpdate();
          
       } catch (SQLException e) {
