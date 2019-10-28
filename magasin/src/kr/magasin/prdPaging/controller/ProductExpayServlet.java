@@ -9,10 +9,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.magasin.basket.model.vo.BasketT;
+import kr.magasin.member.model.service.MemberService;
+import kr.magasin.member.model.vo.Member;
 import kr.magasin.prdPaging.model.service.ProductLeeService;
+
+
 import kr.magasin.product.model.vo.Product;
+
+
 
 /**
  * Servlet implementation class ProductExpayServlet
@@ -33,39 +40,23 @@ public class ProductExpayServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+	///주문창으로 넘어가는 페이지 
 		request.setCharacterEncoding("utf-8");
-		
-		int count = Integer.parseInt(request.getParameter("count"));
-		ArrayList<BasketT> list = new ArrayList<BasketT>();
-		BasketT bt = null;
-		//basket.jsp에서 받아온 값 
-		for(int i=0;i<count;i++) {
-			bt = new BasketT();
-			String prdDtlId = request.getParameter("prdDtlId"+i);
-			String prdDtlSize = request.getParameter("prdDtlSize"+i);
-			String prdDtlColor =request.getParameter("prdDtlColor"+i);
-			int prdCount = Integer.parseInt(request.getParameter("prdCount"+i));
-			int prdPrice = Integer.parseInt(request.getParameter("prdPrice"+i));	
-			bt = new BasketT(prdDtlId, prdDtlSize, prdDtlColor, prdCount, prdPrice);
-			list.add(bt);
-		}
-		//총가격
-		int sum= 0;
-		for(int i =0;i<count;i++) {
-			int result = list.get(i).getPrdCount()*list.get(i).getPrdPrice();
-			sum += result;
-		}
 
-		ProductLeeService service = new ProductLeeService();
-		Product pay = service.ProductdetailId(list);
-	
-		
-			RequestDispatcher rd = request.getRequestDispatcher("/views/prdPage/expays.jsp");
-			request.setAttribute("pays", pay);
-			request.setAttribute("sum", sum);
-			rd.forward(request, response);
+
+
+	      int prdId = Integer.parseInt(request.getParameter("prdId"));
+
+	      ProductLeeService service = new ProductLeeService();
+
+	      Product pay = service.ProductdetailId(prdId);
+	      
+	         RequestDispatcher rd = request.getRequestDispatcher("/views/prdPage/expays.jsp");
+	         request.setAttribute("pays", pay);
+	         rd.forward(request, response);
+
+
 	}
 
 	/**
