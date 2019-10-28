@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import kr.magasin.adminPage.model.service.ChartService;
 import kr.magasin.adminPage.model.vo.Chart;
 
@@ -36,9 +38,16 @@ public class ChartServlet extends HttpServlet {
 		String endDate = request.getParameter("endDate");
 		
 		ChartService service = new ChartService();
-		ArrayList<Chart> chartList = new ArrayList<Chart>();
+		ArrayList<Chart> chartList = service.ChartList(chartIndex, startDate, endDate);
 		
+		if(chartList == null) {
+			return;
+		}
 		
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		new Gson().toJson(chartList, response.getWriter());
+
 	}
 
 	/**
