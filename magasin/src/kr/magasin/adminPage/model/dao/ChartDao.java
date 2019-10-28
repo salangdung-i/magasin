@@ -15,7 +15,7 @@ public class ChartDao {
 		ResultSet rset = null;
 		ArrayList<Chart> list = new ArrayList<Chart>();
 		
-		String query = "SELECT * FROM (SELECT TO_CHAR(TO_DATE(TO_DATE(?), 'YY-MM-DD') + ROWNUM - 1, 'YY-MM-DD') AS MYDATE ,TO_CHAR(TO_DATE(TO_DATE(?), 'YY-MM-DD') + ROWNUM - 1, 'DY') AS day FROM ALL_OBJECTS WHERE ROWNUM <= TO_DATE(?) - TO_DATE(?) + 1) A LEFT OUTER JOIN (SELECT TO_CHAR(ORDER_DATE, 'YY-MM-DD') AS MYDATE, SUM(ORDER_MONEY) AS ORDERMONEY, COUNT(ORDER_MONEY) AS orderCount FROM ORDER_P WHERE TO_CHAR(ORDER_DATE, 'YY-MM-DD') BETWEEN TO_DATE(?)+1 AND TO_DATE(?) GROUP BY TO_CHAR(ORDER_DATE, 'YY-MM-DD') ORDER BY TO_CHAR(ORDER_DATE, 'YY-MM-DD') ASC) B USING(MYDATE)";
+		String query = "SELECT * FROM (SELECT TO_CHAR(TO_DATE(TO_DATE(?), 'YY-MM-DD') + ROWNUM - 1, 'YY-MM-DD') AS MYDATE, TO_CHAR(TO_DATE(TO_DATE(?), 'YY-MM-DD') + ROWNUM - 1, 'DY') AS DAY FROM ALL_OBJECTS WHERE ROWNUM <= TO_DATE(?) - TO_DATE(?) + 1) A LEFT OUTER JOIN (SELECT TO_CHAR(ORDER_DATE, 'YY-MM-DD') AS MYDATE, SUM(ORDER_MONEY) AS ORDERMONEY, COUNT(ORDER_MONEY) AS ORDERCOUNT FROM ORDER_P WHERE TO_CHAR(ORDER_DATE, 'YY-MM-DD') BETWEEN TO_DATE(?)+1 AND TO_DATE(?) GROUP BY TO_CHAR(ORDER_DATE, 'YY-MM-DD') ORDER BY TO_CHAR(ORDER_DATE, 'YY-MM-DD') ASC) B USING(MYDATE) ORDER BY MYDATE ASC";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -31,10 +31,14 @@ public class ChartDao {
 			ArrayList<Integer> sumMoney = new ArrayList<Integer>();
 			
 			rset = pstmt.executeQuery();
+		
 			while(rset.next()) {
 				date.add(rset.getString("MYDATE") == null ? "0" : rset.getString("MYDATE"));
 				countByDate.add(rset.getString("ORDERCOUNT") == null ? 0 : rset.getInt("ORDERCOUNT"));
 				sumMoney.add(rset.getString("ORDERMONEY") == null ? 0 : rset.getInt("ORDERMONEY"));
+				System.out.println(rset.getString("MYDATE"));
+				System.out.println( rset.getInt("ORDERCOUNT"));
+				System.out.println(rset.getInt("ORDERMONEY"));
 			}
 			
 			Chart c = new Chart(date, countByDate, sumMoney);
