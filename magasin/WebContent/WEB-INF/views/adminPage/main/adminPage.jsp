@@ -1,13 +1,7 @@
+<%@page import="kr.magasin.product.model.vo.Product"%>
 <%@page import="kr.magasin.product.model.service.ProductService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-%>
-<%
-	int prdId = 50;
-	ProductService pservice = new ProductService();
-	Product p = pservice.searchOne(prdId);
-	request.setAttribute("product", p);
-	
 %>
 	
 	
@@ -226,7 +220,6 @@
 			</div>
 
 			<div id="tab-9" class="tab-content">
-				<%@include file="/WEB-INF/views/adminPage/graph/graphPage.jsp"%>
 			</div>
 		</div>
 	</div>
@@ -234,7 +227,6 @@
 	<script type="text/javascript" src="/js/adminPage/adminPage.js"></script>
 	<script type="text/javascript" src="/js/adminPage/adminPagePrd.js"></script>
 	<script type="text/javascript" src="/js/adminPage/chart.js"></script>
-	<script type="text/javascript" src="/js/adminPage/prdSearch.js"></script>
 	<script type="text/javascript" src="/js/adminPage/prdInsert.js"></script>
 	<script type="text/javascript" src="/js/adminPage/customerSearch.js"></script>
 </body>

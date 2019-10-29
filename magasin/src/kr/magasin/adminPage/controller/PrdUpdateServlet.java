@@ -44,7 +44,7 @@ public class PrdUpdateServlet extends HttpServlet {
 		request.setAttribute("productdtl", pdtl);
 		System.out.println(p.getPrdName());
 		System.out.println(p.getPrdId());
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/adminPage/graph/graphPage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/adminPage/prd/prdUpdate.jsp");
 		rd.forward(request, response);
 	}
 
