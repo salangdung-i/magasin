@@ -23,8 +23,8 @@
    .search-id-table{
       width: 350px;
       height: 160px;
-       border-top: 1.5px solid #d7d7d7;
-       border-bottom: 1.5px solid #d7d7d7;
+      border-top: 1.5px solid #d7d7d7;
+      border-bottom: 1.5px solid #d7d7d7;
       text-align: center;
    }
    .search-id-table tr{
@@ -60,8 +60,8 @@
    }
     #search-id-btn button {
             font-size: 13px;
-            height: 45px;
-            width: 150px;
+            height: 40px;
+            width: 170px;
             border: 0;
             background-color: #444;
             color: white;
@@ -121,7 +121,7 @@
                         <div id="search-id-btn">
                            <!-- 확인누르면 아이디보여주는 페이지. -->
                            <div class="btn_searchId"><a href="#"><button>확인</button></a></div>
-                           <div class="btn_main"><a href="/index.jsp"><button>메인으로 이동</button></a></div>
+                           <!-- <div class="btn_main"><a href="/index.jsp"><button>메인으로 이동</button></a></div> -->
                         </div>   
                      </div>
                   </form>
@@ -166,12 +166,12 @@
 			   $("#name").focus();
 			   return false;
 		   }
-    	if($("#phone").val()==""){
+    	if($("#phone").val()=="" && $("#email").type=="hidden"){
 			   alert("전화번호를 입력해주세요.");
 			   $("#phone").focus();
 			   return false;
 		   }
-    	if($("#email").val()==""){
+    	if($("#email").val()=="" && $("#phone").type=="hidden"){
 			   alert("이메일을 확인해주세요.");
 			   $("#email").focus();
 			   return false;

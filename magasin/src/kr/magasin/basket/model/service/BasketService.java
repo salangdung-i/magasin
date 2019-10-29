@@ -6,9 +6,36 @@ import java.util.ArrayList;
 import kr.magasin.basket.model.dao.BasketDao;
 import kr.magasin.basket.model.vo.Basket;
 import kr.magasin.basket.model.vo.BasketT;
+import kr.magasin.basket.model.vo.BasketYim;
 import kr.magasin.common.JDBCTemplate;
 
 public class BasketService {
+	
+	public String goToBasket(int prdId, String prdDtlSize,String prdDtlColor) {
+		String prdDtlId = "";
+		Connection conn = JDBCTemplate.getConnection();
+		BasketDao dao = new BasketDao();
+		prdDtlId = dao.goToBasket(conn, prdId, prdDtlSize, prdDtlColor);
+		JDBCTemplate.close(conn);		
+		return prdDtlId;
+		
+	}
+	public int updateBasket(BasketYim bsk){
+		int result =0;
+		Connection conn = JDBCTemplate.getConnection();
+		BasketDao dao = new BasketDao();
+		result = dao.updateBasket(conn, bsk);
+		JDBCTemplate.close(conn);		
+		return result;
+	}
+	public int locationPrd(int prdDtlId) {
+		int result =0;
+		Connection conn = JDBCTemplate.getConnection();
+		BasketDao dao = new BasketDao();
+		result = dao.locationPrd(conn, prdDtlId);
+		JDBCTemplate.close(conn);		
+		return result;
+	}
 	public int deleteBasket(ArrayList<BasketT> list, int count) {
 		int result = 0;
 		Connection conn = JDBCTemplate.getConnection();
@@ -19,6 +46,7 @@ public class BasketService {
 		
 	}
 	public ArrayList<Basket> basketList(String id){
+		System.out.println("장바구니 서비스 !!!");
 		ArrayList<Basket>list = new ArrayList<Basket>();
 		Connection conn = JDBCTemplate.getConnection();
 		BasketDao dao = new BasketDao();
