@@ -1,6 +1,7 @@
 package kr.magasin.adminPage.model.service;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import kr.magasin.adminPage.model.dao.MemberDao;
@@ -19,10 +20,12 @@ public class MemberService {
 			System.out.println("사용자 아이디로 검색하기!");
 			MemberGrade list = dao.MemberGrade1(conn, memberKeyword);
 			// id, name, enrollDate, orderDate, grade
-			
 			ArrayList<MemberGrade> resultList = dao.MemberGrade2(conn, memberKeyword, list);
 			// tCount, tMoney
+			JDBCTemplate.close(conn);
 			return resultList;
+			
+			
 		} else if (memberCondition.equals("customerName")) {
 			// 이름으로 검색
 		} else if (memberCondition.equals("totalMoney")) {

@@ -16,13 +16,7 @@ public class ChartService {
 		Connection conn = JDBCTemplate.getConnection();
 		ChartDao dao = new ChartDao();
 		ArrayList<Chart> chartList = dao.ChartList(conn, chartIndex, startDate, endDate);
-		
-		try {
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
+		JDBCTemplate.close(conn);
 		return chartList;
 	}
 
@@ -30,13 +24,7 @@ public class ChartService {
 		Connection conn = JDBCTemplate.getConnection();
 		ChartDao dao = new ChartDao();
 		ArrayList<Chart2> chartList2 = dao.ChartList2(conn, chartIndex, startDate, endDate);
-		
-		try {
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
+		JDBCTemplate.close(conn);
 		return chartList2;
 	}
 
@@ -45,13 +33,7 @@ public class ChartService {
 		ChartDao dao = new ChartDao();
 		
 		ArrayList<Chart3> chartList3 = dao.ChartList3(conn, chartIndex, startDate, endDate);
-		
-		try {
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
+		JDBCTemplate.close(conn);
 		return chartList3;
 	}
 
