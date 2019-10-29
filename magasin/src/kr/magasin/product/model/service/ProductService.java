@@ -55,6 +55,7 @@ public class ProductService {
 //      }else{
 //         
 //      }
+      JDBCTemplate.close(conn);
       return result;
    }
    
@@ -90,9 +91,10 @@ public class ProductService {
        list = dao.productList(conn,productnamesearch,prdCtgr,prdSubCtrg,prddatesearch);
        if(list.isEmpty()){
           JDBCTemplate.rollback(conn);
-       }else {
+       } else {
           JDBCTemplate.commit(conn);
        }
+       JDBCTemplate.close(conn);
        return list;
    }
 
@@ -100,12 +102,10 @@ public Product searchOne(int prdId) {
    Connection conn = JDBCTemplate.getConnection();
    ProductDao dao = new ProductDao();
    Product p = dao.searchOne(conn, prdId);
-   
-   if(p !=null){
-      ArrayList<ProductDtl> list = dao.searchdtl(conn, prdId);
-      JDBCTemplate.commit(conn);
-   }
-   JDBCTemplate.rollback(conn);
+		/*
+		 * if(p !=null){ ArrayList<ProductDtl> list = dao.searchdtl(conn, prdId); }
+		 */
+   JDBCTemplate.close(conn);
    return p;
 }
 
@@ -118,6 +118,7 @@ public int updateProduct(Product p) {
    }else {
       JDBCTemplate.rollback(conn);
    }
+   JDBCTemplate.close(conn);
    return result;
 }
 
