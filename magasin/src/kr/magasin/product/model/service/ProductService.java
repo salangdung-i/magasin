@@ -77,6 +77,7 @@ public class ProductService {
             }
          }
          JDBCTemplate.commit(conn);
+
  		JDBCTemplate.close(conn);
          return 1;
       }else {
