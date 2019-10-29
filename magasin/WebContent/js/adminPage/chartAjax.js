@@ -6,10 +6,6 @@ $("#chartSearchBtn").click(
 			const startDate = $("[name = datepicker1]").val();
 			const endDate = $("[name = datepicker2]").val();
 
-			console.log(chartIndex);
-			console.log(startDate);
-			console.log(endDate);
-
 			$.ajax({
 				url : "/chart",
 				type : "get",
@@ -26,9 +22,9 @@ $("#chartSearchBtn").click(
 					// ▲ 1번 차트 날짜별 구매건수와 구매금액 나오게 하기.
 
 					// ▼ 2번 차트 성별 나오게 하기.
-					const arr1 = data[0].date;
-					const arr2 = data[0].countByDate;
-					const arr3 = data[0].sumMoney;
+					const arr4 = data[0].date;
+					const arr5 = data[0].countByDate;
+					const arr6 = data[0].sumMoney;
 					// ▲ 2번 차트 성별 나오게 하기.
 					
 					const tmp1 = [ 'x' ];
