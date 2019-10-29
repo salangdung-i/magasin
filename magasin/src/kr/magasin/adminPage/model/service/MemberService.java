@@ -21,24 +21,7 @@ public class MemberService {
 			// tCount, tMoney
 			JDBCTemplate.close(conn);
 			return resultList;
-		} else if (memberCondition.equals("totalMoney")) {
-			// 총 구매금액 얼마 이상
-			MemberGrade mg = dao.MemberGradeByMoney1(conn, memberKeyword);
-			// id, name, enrollDate, orderDate, grade
-			ArrayList<MemberGrade> resultList = dao.MemberGradeByMoney2(conn, memberKeyword, mg);
-			// tCount, tMoney
-			JDBCTemplate.close(conn);
-			return resultList;
-		} else if(memberCondition.equals("totalCount")) {
-			// 총 구매횟수 얼마 이상
-			MemberGrade mg = dao.MemberGradeByCount1(conn, memberKeyword);
-			// id, name, enrollDate, orderDate, grade
-			ArrayList<MemberGrade> resultList = dao.MemberGradeByCount2(conn, memberKeyword, mg);
-			// tCount, tMoney
-			JDBCTemplate.close(conn);
-			return resultList;
 		}
-		
 		return null;
 	}
 

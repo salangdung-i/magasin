@@ -14,8 +14,6 @@
 			<select name = "memberCondition" class = "memberCondition">
 				<option value = "none">--선택--</option>
 				<option value = "customerId">고객아이디</option>
-				<option value = "totalMoney">총구매금액</option>
-				<option value = "totalCount">총구매횟수</option>
 			</select>
 		</div>
 		<div class="bottom-input">

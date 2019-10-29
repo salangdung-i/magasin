@@ -21,23 +21,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<style>
-.tab8-search>.search-bottom>.bottom-input {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-</style>
 
 <link href="https://fonts.googleapis.com/css?family=Jua&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="/css/adminPage/adminPage.css" />
-<link rel="stylesheet" href="/css/adminPage/adminPage-prd.css" />
-<link rel="stylesheet" href="/css/adminPage/tab3.css" />
-<link rel="stylesheet" href="/css/adminPage/tab4.css" />
-<link rel="stylesheet" href="/css/adminPage/tab5.css" />
-<link rel="stylesheet" href="/css/adminPage/tab7.css" />
-<link rel="stylesheet" href="/css/adminPage/tab8.css" />
+<link rel="stylesheet" href="/css/adminPage/adminPage2.css" />
+<link rel="stylesheet" href="/css/adminPage/adminPage-prd2.css" />
 
 <!--폰트를 위한 링크-->
 <link
@@ -90,8 +78,6 @@
 </head>
 
 <body>
-	<div class="all-container">
-		<div class="container">
 			<ul class="tabs">
 				<a href="/adminPageMain"> <img
 					src="img/adminPage/manager-logo.png" alt="매거진" class="tabs-logo"
@@ -104,11 +90,11 @@
 
 			<!-- 아래 'tab-#'형으로 id를 갖는 div들 순서 바꾸지 말아주세요... 1, 2, 3,... 순으로 하면 깨져서 그래요!-->
 
-			<div>
+			<div class="current">
 				<!-- 이곳이 상품 수정 페이지에 대한 내용 -->
 				<form action="/prdUpdateEnd" method="post"
 					enctype="multipart/form-data">
-					<div class="tabupdate">
+					<div class="tabupdate current">
 						<input type="hidden" name="prdId" value="<%=pp.getPrdId()%>">
 						<i class="fas fa-list"></i><span> 상품 수정 페이지</span> <br> <br>
 						<div class="updatemain">
@@ -247,15 +233,6 @@
 					</div>
 				</form>
 			</div>
-		</div>
-	</div>
-
-	<script type="text/javascript" src="/js/adminPage/adminPage.js"></script>
-	<script type="text/javascript" src="/js/adminPage/adminPagePrd.js"></script>
-	<script type="text/javascript" src="/js/adminPage/chart.js"></script>
-	<script type="text/javascript" src="/js/adminPage/prdSearch.js"></script>
-	<script type="text/javascript" src="/js/adminPage/prdInsert.js"></script>
-	<script type="text/javascript" src="/js/adminPage/customerSearch.js"></script>
 </body>
 <script>
 	function loadImg3(value) {
