@@ -72,7 +72,7 @@
 										
 							 		</td>
 									
-							        <td class="bkt-list-2"><a href="/locationPrd?prdDtlId=<%=b2.getBasketPrdDtlId()%>"><img src="/img/myPage/product1.jpg"></a></td>
+							        <td class="bkt-list-2"><a href="/locationPrd?prdDtlId=<%=b2.getBasketPrdDtlId()%>"><img src="/upload/photo/<%=b2.get%>"></a></td>
 							   
 							        <td class="bkt-list-3">
 							        	<ul>

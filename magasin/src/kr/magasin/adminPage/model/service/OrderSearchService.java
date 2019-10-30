@@ -65,7 +65,6 @@ public class OrderSearchService {
 			}
 		}
 		*/
-
 		JDBCTemplate.close(conn);
 		return list;
 	}

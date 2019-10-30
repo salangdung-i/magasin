@@ -46,9 +46,9 @@ public class LocationPrdServlet extends HttpServlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/views/prdPage/exdetail.jsp");
 		
-		ArrayList<ProductDtl> prdDtl = service2.searchColor();
+		// ArrayList<ArrayList<ProductDtl>> prdDtl = service2.searchColor();
 		
-		request.setAttribute("prdCol", prdDtl);
+		//request.setAttribute("prdCol", prdDtl);
 		request.setAttribute("productId", prd);
 		rd.forward(request, response);
 		

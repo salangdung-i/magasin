@@ -24,11 +24,7 @@ public class CustomerSearchService {
 			} else if (selectIndex.equals("customerId")) {
 				// 고객아이디 기준
 				list = dao.CustomerSearchAllById(conn, customer);
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				JDBCTemplate.close(conn);
 				return list;
 			} else if (selectIndex.equals("prdName")) {
 				// 제품명

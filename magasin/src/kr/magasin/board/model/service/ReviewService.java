@@ -94,6 +94,7 @@ public class ReviewService {
 		if(list.isEmpty()) {
 			System.out.println("리뷰쓰지도 않았으면서,,");
 		}
+		JDBCTemplate.close(conn);
 		return list;
 	}
 

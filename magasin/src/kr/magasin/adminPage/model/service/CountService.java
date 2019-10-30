@@ -22,6 +22,8 @@ public class CountService {
 		c = dao.CountQ1(conn, c);
 		c = dao.CountQ2(conn, c);
 		list = dao.CountCancle(conn, c);
+		
+		JDBCTemplate.close(conn);
 		return list;
 	}
 	
