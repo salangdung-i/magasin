@@ -105,14 +105,7 @@
 	
 	</tbody>
 	</table>
-		<div class ="ol-pageNavi">
-		<a href="#"><img src="/img/myPage/pn_btn_page_first.gif"></a>
-		<a href="#"><img src="/img/myPage/pn_btn_page_prev.gif"></a>
-		<ul class="ol-navi-ul"><li><a href="#">1</a></li></ul>
-		<a href="#"><img src="/img/myPage/pn_btn_page_next.gif"></a>
-		<a href="#"><img src="/img/myPage/pn_btn_page_last.gif"></a>
 		
-		</div>
 
 	</div>
 </div>
