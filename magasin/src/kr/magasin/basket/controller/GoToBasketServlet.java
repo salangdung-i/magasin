@@ -1,6 +1,8 @@
 package kr.magasin.basket.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +19,7 @@ import kr.magasin.basket.model.vo.BasketYim;
  */
 @WebServlet(name = "GoToBasket", urlPatterns = { "/goToBasket" })
 public class GoToBasketServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -27,33 +29,40 @@ public class GoToBasketServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		
+   /**
+    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+    */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        System.out.println("장바구니 가는 서블릿 ");
 
-	String prdDtlSize = request.getParameter("prdDtlSize");
-	String prdDtlColor = request.getParameter("prdDtlColor");
-	String basketUserId = request.getParameter("basketUserId");
-	String prdName = request.getParameter("prdName");
-	int prdId = Integer.parseInt(request.getParameter("prdId"));
-	int prdCount = Integer.parseInt(request.getParameter("prdCount"));
-	int prdPrice = Integer.parseInt(request.getParameter("prdPrice"));
-	BasketService service = new BasketService();
-	int prdDtlId = Integer.parseInt(service.goToBasket(prdId, prdDtlSize, prdDtlColor));
-	BasketYim bsk = new BasketYim(0, basketUserId, prdDtlId, prdCount);
-	int result = service.updateBasket(bsk);
-		
-	}
+     String prdDtlSize = request.getParameter("prdDtlSize");
+     String prdDtlColor = request.getParameter("prdDtlColor");
+     String basketUserId = request.getParameter("basketUserId");
+     String prdName = request.getParameter("prdName");
+     int prdId = Integer.parseInt(request.getParameter("prdId"));
+     int prdCount = Integer.parseInt(request.getParameter("prdCount"));
+     int prdPrice = Integer.parseInt(request.getParameter("prdPrice"));
+     System.out.println("장바구니 제발 들ㅇ와 "+prdDtlSize);
+     BasketService service = new BasketService();
+     int prdDtlId = Integer.parseInt(service.goToBasket(prdId, prdDtlSize, prdDtlColor));
+     BasketYim bsk = new BasketYim(0, basketUserId, prdDtlId, prdCount);
+     int result = service.updateBasket(bsk);
+     
+     request.setAttribute("msg", "장바구니에 추가가 완료되었습니다.");
+     String url = "/productExdetail?prdId="+prdId;
+     request.setAttribute("loc", url);
+     RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+     rd.forward(request, response);
+     
+     }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+   /**
+    * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+    */
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      // TODO Auto-generated method stub
+      doGet(request, response);
+   }
 
 }
