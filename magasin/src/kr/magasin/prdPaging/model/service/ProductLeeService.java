@@ -104,19 +104,21 @@ public class ProductLeeService {
 		return pd;
 	}
 
-	public ArrayList<ArrayList<ProductDtl>> searchColor(ArrayList<ProductLee> list) {
+	
+	public ArrayList<ArrayList<ProductDtl>> searchColor(ArrayList<ProductLee> list){
 		Connection conn = JDBCTemplate.getConnection();
-		ArrayList<ArrayList<ProductDtl>> colors = dao.searchColor(conn, list);
+		ArrayList<ArrayList<ProductDtl>> colors = dao.searchColor(conn,list);
 		JDBCTemplate.close(conn);
 		return colors;
 	}
+	/*public ArrayList<ProductDtl> colSize(ArrayList<Product> list) {
+	      Connection conn = JDBCTemplate.getConnection();
+	      ArrayList<ProductDtl> colorS = dao.colSize(conn,list);
+	      JDBCTemplate.close(conn);
+	      return colorS;
+	   }*/
+	public ArrayList<String> subCtgr(String ctgr,String gender) {
 
-	/*
-	 * public ArrayList<ProductDtl> colSize(ArrayList<Product> list) { Connection
-	 * conn = JDBCTemplate.getConnection(); ArrayList<ProductDtl> colorS =
-	 * dao.colSize(conn,list); JDBCTemplate.close(conn); return colorS; }
-	 */
-	public ArrayList<String> subCtgr(String ctgr, String gender) {
 		Connection conn = JDBCTemplate.getConnection();
 		ArrayList<String> sub = dao.subCtgr(conn, ctgr, gender);
 
@@ -236,18 +238,31 @@ public class ProductLeeService {
 
 	public ArrayList<String> selectColor(int prdId) {
 		// TODO Auto-generated method stub
-		Connection conn = JDBCTemplate.getConnection();
-		ArrayList<String> colors = dao.selectColor(conn, prdId);
+
+		Connection conn= JDBCTemplate.getConnection();
+		ArrayList<String> colors = dao.selectColor(conn,prdId);
 		JDBCTemplate.close(conn);
 		return colors;
 	}
-
 	public ArrayList<String> selectSize(int prdId) {
 		// TODO Auto-generated method stub
-		Connection conn = JDBCTemplate.getConnection();
-		ArrayList<String> sizes = dao.selectSize(conn, prdId);
-		JDBCTemplate.close(conn);
+		Connection conn= JDBCTemplate.getConnection();
+		ArrayList<String> sizes = dao.selectSize(conn,prdId);
+		JDBCTemplate.close(conn);		
 		return sizes;
 	}
+
+	public int orderComplete(int prdId, String size, int amount, String color) {
+		// TODO Auto-generated method stub
+		Connection conn = JDBCTemplate.getConnection();
+		int result = dao.orderComplete(conn,prdId,size,amount,color);
+		if(result >0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		return result;
+	}
+	
 
 }

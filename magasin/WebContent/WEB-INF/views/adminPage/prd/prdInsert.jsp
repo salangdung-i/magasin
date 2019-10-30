@@ -128,7 +128,6 @@
                           <option value="etc">기타</option>
                           <!-- woman top -->
                           <option value="t">티셔츠</option>
-
                           <option value="blouse">블라우스</option>
                           <option value="etc">etc</option>
                           <!-- man top -->
@@ -292,6 +291,7 @@
                   
                });   
             
+
                function mySubmit(index){
                   if(index==1){
                      document.myForm.action='/prdInsert';
