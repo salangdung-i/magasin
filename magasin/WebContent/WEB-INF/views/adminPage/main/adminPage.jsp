@@ -139,7 +139,7 @@
 				<li class="tab-link" data-tab="tab-4">고객조회</li>
 				<li class="tab-link" data-tab="tab-5">주문조회</li>
 				<li class="tab-link" data-tab="tab-7">매출조회</li>
-				<li class="tab-link" data-tab="tab-8">등급관리</li>
+<!-- 				<li class="tab-link" data-tab="tab-8">등급관리</li> -->
 			</ul>
 
 			<!-- 아래 'tab-#'형으로 id를 갖는 div들 순서 바꾸지 말아주세요... 1, 2, 3,... 순으로 하면 깨져서 그래요!-->
