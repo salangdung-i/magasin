@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	<!-- 여러개의 mapper를 구분해주기 위한 속성이 namespace이다. -->
+	<!-- 쿼리문이 갈릴 때 그 구분을 위한 속성이라고 생각해도 좋다. -->
+<mapper namespace = "mybatis">
+	<!-- session의 메소드의 인자(메개변수)에 대한 명세 -->
+	<!-- select 태그의 id가 DAO에서 작성된 속성값과 일치하여야 한다. -->
+	<select id="loginMember" parameterType = "Member" resultType = "Member">
+		select
+		member_no as memberNo,
+		member_id as memberId,
+		member_pw as memberPw,
+		member_name as memberName,
+		member_addr as memberAddr,
+		reg_date as regDate
+		from member
+		where member_id = #{memberId}
+		and member_pw = #{memberPw}
+	</select>
+	<select id="selectAllMember" resultType = "Member">
+	<!-- 이미 selectList는 List형을 반환하기로 되어 있으므로, 그 List의 내부자료의 형태에 해당하는 객체를 적어줌 -->
+		select
+		member_no as memberNo,
+		member_id as memberId,
+		member_pw as memberPw,
+		member_name as memberName,
+		member_addr as memberAddr,
+		reg_date as regDate
+		from member
+	</select>
+</mapper>

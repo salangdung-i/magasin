@@ -1,3 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
-<configuration></configuration>
+<configuration>
+	<settings>
+		<!-- NULL 값이 발생할 경우 빈칸이 아닌 NULL로 인지 -->
+		<setting name="jdbcTypeForNull" value = "NULL"/>
+	</settings>
+	<typeAliases>
+		<typeAlias type = "org.kh.member.model.vo.Member" alias="Member"/>
+	</typeAliases>
+	<environments default="development">
+	<!-- environment id를 이용하여 연결할 DB를 여러개 구성할 수 있음 -->
+		<environment id = "development">
+		<!-- 
+			JDBC : COMMIT과 ROLLBACK을 처리하기위해 사용
+			MANAGED : COMMIT과 ROLLBACK을 하지않고, 컨테이너가 관리
+		 -->
+			<transactionManager type = "JDBC"/>
+			<dataSource type="POOLED">
+				<property name = "driver" value = "oracle.jdbc.driver.OracleDriver"/>
+				<property name = "url" value = "jdbc:oracle:thin:@localhost:1521:xe"/>
+				<property name = "username" value = "mybatis"/>
+				<property name = "password" value = "1234"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 회원정보에서 사용할 Mapper 파일 등록 -->
+	<mappers>
+		<mapper resource = "mapper/member/member-mapper.xml"/>
+		<!-- 이곳에 다양한 mapper들이 쭉 나열되어 들어올 것이다. -->
+	</mappers>
+</configuration>
