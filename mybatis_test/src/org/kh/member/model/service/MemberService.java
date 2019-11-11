@@ -27,4 +27,34 @@ public class MemberService {
 		return list;
 	}
 
+	public int insertMember(Member m) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		MemberDao dao = new MemberDao();
+		
+		int result = dao.insertMember(session, m);
+		
+		if(result > 0) {
+			session.commit();
+		} else {
+			session.rollback();
+		}
+		session.close();
+		return result;
+	}
+
+	public int deleteMember(String memberId) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		MemberDao dao = new MemberDao();
+		
+		int result = dao.deleteMember(session, memberId);
+		
+		if(result > 0) {
+			session.commit();
+		} else {
+			session.rollback();
+		}
+		session.close();
+		return result;
+	}
+
 }

@@ -17,7 +17,7 @@
 		where member_id = #{memberId}
 		and member_pw = #{memberPw}
 	</select>
-	<select id="selectAllMember" resultType = "Member">
+	<select id = "selectAllMember" resultType = "Member">
 	<!-- 이미 selectList는 List형을 반환하기로 되어 있으므로, 그 List의 내부자료의 형태에 해당하는 객체를 적어줌 -->
 		select
 		member_no as memberNo,
@@ -28,4 +28,7 @@
 		reg_date as regDate
 		from member
 	</select>
+	<insert id = "insertMember" parameterType = "Member">
+		insert into member values(member_seq.nextval, #{memberId}, #{memberPw}, #{memberName}, #{memberAddr}, sysdate)
+	</insert>
 </mapper>

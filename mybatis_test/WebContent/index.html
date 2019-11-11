@@ -5,7 +5,12 @@
 <title>MyBatis 사용하는 메인페이지</title>
 </head>
 <body>
-	<a href = "/views/member/login.html">1. 로그인</a>
-	<a href = "/allMember">2. 모든 회원 정보</a>
+	<a href = "/views/member/login.html">1. 로그인</a><br/>
+	<a href = "/allMember">2. 모든 회원 정보</a><br/>
+	<a href = "/views/member/enroll.html">3. 회원가입</a><br/>
+	<form action = "/deleteMember" method = "post">
+		탈퇴할 ID 입력 : <input type = "text" name = "memberId">
+		<input type = "submit" value = "탈퇴하기">
+	</form>
 </body>
 </html>

@@ -20,4 +20,15 @@ public class MemberDao {
 		return (ArrayList<Member>)list;
 	}
 
+	public int insertMember(SqlSession session, Member m) {
+		// 인자 : "구분자", 객체 
+		int result = session.insert("mybatis.insertMember", m);
+		return result;
+	}
+
+	public int deleteMember(SqlSession session, String memberId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

@@ -3,28 +3,26 @@ package org.kh.member.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.kh.member.model.service.MemberService;
 import org.kh.member.model.vo.Member;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class EnrollServlet
  */
-@WebServlet(name = "Login", urlPatterns = { "/login" })
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "Enroll", urlPatterns = { "/enroll" })
+public class EnrollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public EnrollServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,40 +34,26 @@ public class LoginServlet extends HttpServlet {
 		// 1. 인코딩
 		request.setCharacterEncoding("UTF-8");
 		
-		// 2. 값 읽어오기
+		// 2. 전달값 저장
 		String memberId = request.getParameter("memberId");
 		String memberPw = request.getParameter("memberPw");
+		String memberName = request.getParameter("memberName");
+		String memberAddr = request.getParameter("memberAddr");
+		Member m = new Member(0, memberId, memberPw, memberName, memberAddr, null);
 		
-		Member m = new Member();
-		m.setMemberId(memberId);
-		m.setMemberPw(memberPw);
-		
-		// 3. 비즈니스 로직 수행
+		// 3. 비즈니스 로직
 		MemberService service = new MemberService();
-		Member member = service.loginMember(m);
+		int result = service.insertMember(m);
 		
 		// 4. 결과처리
-		// 따로 페이지를 만들 것은 아니어서, 인코딩.
-//19-10-31
-//		response.setContentType("text/html; charset = UTF-8");
-//		PrintWriter out = response.getWriter();
-//		
-//		if(member != null) {
-//			// 로그인 성공시
-//			out.println("성공");
-//		} else {
-//			// 로그인 실패시
-//			out.println("실패ㅠ");
-//		}
-		if(member != null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("member", member);
-			RequestDispatcher rd = request.getRequestDispatcher("/views/member/mypage.jsp");
-			rd.forward(request, response);
-		} else {
-			response.sendRedirect("/");
+		response.setContentType("text/html; charset = UTF-8");
+		PrintWriter out = response.getWriter();
+			if(result > 0) {
+				out.println("회원가입 성공!");
+			} else {
+				out.println("회원가입 실패!");
+			}
 		}
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
